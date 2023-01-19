@@ -1,0 +1,30 @@
+<body>  <mat-toolbar>
+  <span class="example-icon">  <img
+    width="60"
+    alt="Jcy"
+    src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
+  /></span>
+</mat-toolbar>
+<form class="mb-3" [formGroup]="formLogin">
+  <h1>Login</h1>
+<p>
+  <mat-form-field appearance="outline" >
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="Username">
+  </mat-form-field>
+</p>
+<p>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="Password">
+  </mat-form-field>
+</p>
+<section>
+  
+  <div class="example-button-row">
+    <button mat-raised-button>Login</button>
+    <button [routerLink]="['/register']"  mat-raised-button>Register</button>
+  </div>
+</section>
+</form>
+</body>
