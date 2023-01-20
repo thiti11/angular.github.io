@@ -35,8 +35,9 @@ export class AppComponent  implements OnInit {
       mod: 'Get_test',  
     };
     this.ApiService.read(data).subscribe((resposne: any) => {
-      this.item = resposne
-      this.Username = resposne[0]['Username'];
+      console.log(resposne);
+    //  this.item = resposne
+    //this.Username = resposne[0]['Username'];
        
         
     });

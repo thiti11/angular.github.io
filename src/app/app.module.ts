@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule,} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -21,7 +22,8 @@ import { MatNativeDateModule } from '@angular/material/core';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

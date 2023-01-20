@@ -1,7 +1,12 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from 'src/app/api.sercice';
+import { first } from 'rxjs';
+import { AuthenticationService } from '../_services';
+import { ApiService } from '../api.sercice';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -10,32 +15,49 @@ import { ApiService } from 'src/app/api.sercice';
 })
 export class LoginComponent implements OnInit {
   
-  formLogin: FormGroup;
+    loginForm!: FormGroup
+    Username: any
+    Password: any
+ 
+ 
 
   constructor(
  
     private formBuilder: FormBuilder,
-    private ApiService: ApiService
+    private AuthenticationService: AuthenticationService,
+    private ApiService:ApiService  
+  
+    ){  }
 
-    ){
-      this.formLogin = this.formBuilder.group({
-        Username:['', [Validators.required]],
-        Password:['', Validators.required] 
-      });
+    ngOnInit(){
+      this.loginForm = this.formBuilder.group({
+        Username: ["", Validators.required],
+        Password: ["", Validators.required]
+    });
+    
+   
+  }
+  Login() {
+    console.log(this.loginForm.value);
+    this.AuthenticationService.login(this.Username,this.Password)
+    .subscribe(data =>{
+      console.log(data);
+      if(data.message =='success'){
+        
+      }
+     
+    },
+    error => {
+      alert("User name or password is incorrect")
+
+    }
+    )
+   
+  
     
 
     }
 
 
-  ngOnInit(): void {
-  }
-
-  login(){
-    let data ={
-      mod: ' login',
-    };
-    this.ApiService.read(data).subscribe()
-  }
-  
   
 }

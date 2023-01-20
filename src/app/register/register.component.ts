@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map, Observable, startWith } from 'rxjs';
-import { ApiService } from '../api.sercice';
+
+import { AuthenticationService } from '../_services';
 
 export interface User {
   name: string;
@@ -24,7 +25,7 @@ export class RegisterComponent implements OnInit {
     private http:HttpClient, 
     private formBuilder: FormBuilder,
     private router:Router,
-    private ApiService: ApiService
+    private AuthenticationService:AuthenticationService
 
     ) {  this.formRegister = this.formBuilder.group({
       Username:['', Validators.required],
@@ -124,8 +125,9 @@ filteredEmployee_Detail: Observable<User[]> | undefined;
   }
   
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.log(this.formRegister.value);
+  
+
+ 
   }
   
 

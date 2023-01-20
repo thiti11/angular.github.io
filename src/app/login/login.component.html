@@ -5,18 +5,18 @@
     src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
   /></span>
 </mat-toolbar>
-<form class="mb-3" [formGroup]="formLogin">
+<form class="mb-3" [formGroup]="loginForm" (ngSubmit)="Login()">
   <h1>Login</h1>
 <p>
   <mat-form-field appearance="outline" >
     <mat-label>Username</mat-label>
-    <input matInput formControlName="Username">
+    <input matInput  formControlName="Username">
   </mat-form-field>
 </p>
 <p>
   <mat-form-field appearance="outline">
     <mat-label>Password</mat-label>
-    <input matInput formControlName="Password">
+    <input matInput class="form-control" formControlName="Password">
   </mat-form-field>
 </p>
 <section>
