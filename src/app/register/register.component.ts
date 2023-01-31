@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { map, Observable, startWith } from 'rxjs';
 
-import { AuthenticationService } from '../_services';
+import { ApiService } from '../api.sercice';
 
 export interface User {
   name: string;
@@ -19,13 +19,28 @@ export interface User {
 })
 export class RegisterComponent implements OnInit {
 
-  formRegister: FormGroup;
+  formRegister: any = {
+    Username:null,
+    Password:null,
+    Firstname:null,
+    Lastname:null,
+    EmpNo:null,
+    Position:null,
+    Department:null,
+    Section:null,
+    Type_of_Employee:null,
+    Employee_Detail:null,
+    Joined_date:null,
+  };
   myControl = new FormControl();
+
+  
+
   constructor(
     private http:HttpClient, 
     private formBuilder: FormBuilder,
     private router:Router,
-    private AuthenticationService:AuthenticationService
+    private ApiService:ApiService , 
 
     ) {  this.formRegister = this.formBuilder.group({
       Username:['', Validators.required],
@@ -40,7 +55,8 @@ export class RegisterComponent implements OnInit {
       Employee_Detail:['', Validators.required], 
       Joined_date:['', Validators.required] ,
     }
-    );}
+    );
+  }
 
 
   Department: User[] = [{name: 'Quality Assurance'},
@@ -86,24 +102,23 @@ filteredEmployee_Detail: Observable<User[]> | undefined;
   
 
   ngOnInit(): void {
+    
+    //this.Get_Register();
+
     this. filteredDepartment = this.myControl.valueChanges.pipe(
       startWith(''),
-      map(value => (typeof value === 'string' ? value : value.name)),
       map(name => (name ? this._filter(name) : this.Department.slice())),
     );
     this.filteredSection = this.myControl.valueChanges.pipe(
       startWith(''),
-      map(value => (typeof value === 'string' ? value : value.name)),
       map(name => (name ? this._filter(name) : this.Section.slice())),
     );
     this.filteredType_of_Employee = this.myControl.valueChanges.pipe(
       startWith(''),
-      map(value => (typeof value === 'string' ? value : value.name)),
       map(name => (name ? this._filter(name) : this.Type_of_Employee.slice())),
     );
     this.filteredEmployee_Detail = this.myControl.valueChanges.pipe(
       startWith(''),
-      map(value => (typeof value === 'string' ? value : value.name)),
       map(name => (name ? this._filter(name) : this.Employee_Detail.slice())),
     );
 
@@ -124,9 +139,29 @@ filteredEmployee_Detail: Observable<User[]> | undefined;
    
   }
   
-  onSubmit() {
-  
+  Get_Register() {
+  console.log(this.formRegister.value);
+  let data = {
+    mod: 'Get_Register', 
+    Username: this.formRegister.value.Username,
+    Password: this.formRegister.value.Password,
+    Firstname: this.formRegister.value.Firstname,
+    Lastname: this.formRegister.value.Lastname,
+    EmpNo: this.formRegister.value. EmpNo,
+    Position: this.formRegister.value.Position,
+    Department: this.formRegister.value. Department,
+    Section: this.formRegister.value.Section, 
+    Type_of_Employee: this.formRegister.value.Type_of_Employee, 
+    Employee_Detail: this.formRegister.value. Employee_Detail, 
+    Joined_date: this.formRegister.value.Joined_date, 
+  };
+  this.ApiService.read(data).subscribe(data=> {
+    console.log(data);
+    this.router.navigate(['login']);
 
+      
+  });
+  
  
   }
   

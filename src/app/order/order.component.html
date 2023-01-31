@@ -1,1 +1,87 @@
-<p>order works!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welfare Requestition </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+  
+<div class="page-wrapper chiller-theme toggled">
+    <nav id="sidebar" class="sidebar-wrapper">
+        <div class="img">
+        <img
+        width="120"
+        
+        alt="Jcy"
+        src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
+      />
+    </div>
+    <div class="order">
+        <button [routerLink]="['/order']" type="button" class="btn btn-success">ออเดอร์การสั่งซื้อ(Ordering)</button>
+       <button [routerLink]="['/orderequ']"type="button" >สั่งซื้ออุปกรณ์(Order Equipment)</button>
+  
+          </div>
+      <div class="sidebar-content">
+        
+        <div class="sidebar-header">
+           
+          <div class="user-pic">
+            <img class="img-responsive img-rounded" src="https://sv1.picz.in.th/images/2022/12/21/JNIGHy.jpg"
+              alt="User picture">
+          </div>
+          <div class="user-info">
+            <span class="user-name">
+              <strong>{{ currentUser.Firstname }} </strong>
+            </span>
+          
+          </div>
+        </div>
+        <div class="sidebar-memu">
+            
+    
+        </div><br>
+        <div class="sidebar-loguout">
+          <button [routerLink]="['/login']" type="submit" class="btn btn-success" >ออกจากระบบ(Logout)</button>
+        </div>
+    </div>
+
+        </nav>
+    </div>
+    
+      <div class="mp-table">
+       <h1>
+        ออเดอร์การสั่งซื้อ(Ordering)
+       </h1>
+        <table>
+            <tr>
+              <th>ลำดับ(No)</th>
+              <th>ชื่อ (name)</th>
+              <th>รายการ(List)</th>
+              <th>รวมเงินทั้งหมด(Total money)</th>
+              <th>หมายเหตุ(Remark)</th>
+              <th>อัปเดต(Update)</th>
+
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+           
+                                     
+            </tr>
+            </table>
+        
+        </div>
+</body>
+</html>

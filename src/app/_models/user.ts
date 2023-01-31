@@ -11,7 +11,7 @@ export class User {
   Section!: string;
   Type_of_Employee!: string;
   Employee_Detail!: string;
-  Joined_date!: string;
+  Joined_date!: number;
 
     token?: string;
 }

@@ -8,6 +8,7 @@ import { User } from 'src/app/_models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
+  
   [x: string]: any;
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
@@ -27,11 +28,12 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(Username:string, Password:string) {
+  login(data: any) {
     //console.log(data, 'login');
 
-    return this.http.post<any>(`${this.PHP_API_SERVER}`, {Username,Password})
+    return this.http.post<any>(`${this.PHP_API_SERVER }`, {data})
       .pipe(map(user => {
+        console.log(user)
 
         if (user && user.token) {
           localStorage.setItem('currentUser', JSON.stringify(user));
@@ -45,6 +47,14 @@ export class AuthenticationService {
     this.currentUserSubject.next(null!);
 
  }
+
+    register(data: any){
+      return this.http.post<any>(`${this.PHP_API_SERVER }`, {data})
+      .pipe(map(user =>{
+        console.log(user)
+        return user;
+      }))
+    }
 
   
 }

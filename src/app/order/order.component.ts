@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.sercice';
+import { StorageService } from '../_services/storage.service';
 
 @Component({
   selector: 'app-order',
@@ -7,7 +8,7 @@ import { ApiService } from 'src/app/api.sercice';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-
+  currentUser: any;
   
   Username: any 
   Password: any
@@ -22,24 +23,15 @@ export class OrderComponent implements OnInit {
   Joined_date: any
   item: any
 
-constructor(private ApiService: ApiService) {
+constructor(private ApiService: ApiService,
+  private  StorageService: StorageService) {
   
 }
 
 ngOnInit(): void{
-    this.Get_test();
+  //  this.Get_item();
+  this.currentUser = this.StorageService.getUser();
 }
 
-Get_test(){
 
-  let data = {
-    mod: 'Get_test',  
-  };
-  this.ApiService.read(data).subscribe((resposne: any) => {
-    this.item = resposne
-  this.Username = resposne[0]['Username'];
-     
-      
-  });
-}
 }

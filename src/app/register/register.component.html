@@ -5,45 +5,45 @@
       src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
     /></span>
   </mat-toolbar>
-  <form class="mb-3" (ngSubmit)="onSubmit()" [formGroup]="formRegister">
+  <form class="mb-3" (ngSubmit)="Get_Register()" [formGroup]="formRegister">
     <h1>Register</h1>
     <div class="example-container">
   <p>
     <mat-form-field appearance="outline" >
       <mat-label>Username</mat-label>
-      <input matInput formControlName="Username">
+      <input matInput formControlName="Username" name="Username">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput formControlName="Password">
+      <input matInput formControlName="Password" name="Password">
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Firstname</mat-label>
-      <input matInput formControlName="Firstname">
+      <input matInput formControlName="Firstname" name="Firstname">
     </mat-form-field>
     
     <mat-form-field appearance="outline">
       <mat-label>Lastname</mat-label>
-      <input matInput formControlName="Lastname">
+      <input matInput formControlName="Lastname" name="Lastname">
     </mat-form-field>
   
   <p>
     <mat-form-field appearance="outline">
       <mat-label>EmpNo</mat-label>
-      <input matInput formControlName="EmpNo">
+      <input matInput formControlName="EmpNo" name="EmpNo">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Position</mat-label>
-      <input matInput formControlName="Position">
+      <input matInput formControlName="Position" name="Position">
     </mat-form-field>
   </p>
   <div>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Department</mat-label>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" formControlName="Department">
-    <mat-autocomplete #auto="matAutocomplete" >
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" formControlName="Department" name="Department">
+    <mat-autocomplete #auto="matAutocomplete"[displayWith]="displayFn" >
       <mat-option *ngFor="let option of filteredDepartment | async" [value]="option">
         {{option.name}}
       </mat-option>
@@ -51,8 +51,8 @@
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Section</mat-label>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoSection" formControlName="Section">
-    <mat-autocomplete #autoSection="matAutocomplete" >
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoSection" formControlName="Section" name="Section">
+    <mat-autocomplete #autoSection="matAutocomplete" [displayWith]="displayFn">
       <mat-option *ngFor="let option of filteredSection | async" [value]="option">
         {{option.name}}
       </mat-option>
@@ -62,8 +62,8 @@
 <div>
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Type_of_Employee</mat-label>
-      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoType_of_Employe" formControlName="Type_of_Employee">
-      <mat-autocomplete #autoType_of_Employe="matAutocomplete" >
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoType_of_Employe" formControlName="Type_of_Employee" name="Type_of_Employee">
+      <mat-autocomplete #autoType_of_Employe="matAutocomplete" [displayWith]="displayFn">
         <mat-option *ngFor="let option of filteredType_of_Employee| async" [value]="option">
           {{option.name}}
         </mat-option>
@@ -71,8 +71,8 @@
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Employee_Detail</mat-label>
-      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoEmployee_Detail" formControlName="Employee_Detail">
-      <mat-autocomplete #autoEmployee_Detail="matAutocomplete" >
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoEmployee_Detail" formControlName="Employee_Detail" name="Employee_Detail">
+      <mat-autocomplete #autoEmployee_Detail="matAutocomplete" [displayWith]="displayFn">
         <mat-option *ngFor="let option of filteredEmployee_Detail | async" [value]="option">
           {{option.name}}
         </mat-option>
@@ -81,7 +81,7 @@
   </div>
   <mat-form-field appearance="fill">
     <mat-label>Joined_date</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="Joined_date">
+    <input matInput [matDatepicker]="picker" formControlName="Joined_date" name="Joined_date">
 
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>

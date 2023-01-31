@@ -15,6 +15,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule,} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { OrderComponent } from './order/order.component';
+import { OrderEquComponent } from './order-equ/order-equ.component';
 
 
 
@@ -23,7 +24,8 @@ import { OrderComponent } from './order/order.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    OrderComponent
+    OrderComponent,
+    OrderEquComponent
   ],
   imports: [
     BrowserModule,

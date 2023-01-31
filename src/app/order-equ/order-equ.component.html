@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welfare Requestition </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+  
+<div class="page-wrapper chiller-theme toggled">
+    <nav id="sidebar" class="sidebar-wrapper">
+        <div class="img">
+        <img
+        width="120"
+        
+        alt="Jcy"
+        src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
+      />
+    </div>
+    <div class="order">
+      <button [routerLink]="['/order']" type="button" class="btn btn-success">ออเดอร์การสั่งซื้อ(Ordering)</button>
+      <button [routerLink]="['/orderequ']" type="button" class="btn btn-success">สั่งซื้ออุปกรณ์(Order Equipment)</button>
+
+        </div>
+      <div class="sidebar-content">
+        
+        <div class="sidebar-header">
+          <div class="user-pic">
+            <img class="img-responsive img-rounded" src="https://sv1.picz.in.th/images/2022/12/21/JNIGHy.jpg"
+              alt="User picture">
+          </div>
+          
+          <div class="user-info">
+            <span class="user-name">
+              <strong>{{ currentUser.Firstname }}</strong>
+            </span>
+          
+          </div>
+        </div>
+        <div class="sidebar-memu">
+           
+    
+        </div><br>
+        <div class="sidebar-loguout">
+          <button [routerLink]="['/login']" type="submit" class="btn btn-success" >ออกจากระบบ(Logout)</button>
+        </div>
+    </div>
+
+        </nav>
+    </div>
+    
+      <div class="mp-table">
+       <h1>
+        สั่งซื้ออุปกรณ์(Order Equpment)
+       </h1>
+       <p>
+        <strong>FirstName(ชื่อ):</strong>
+        {{currentUser.Firstname  }}
+        <strong>Lastname(นามสกุล):</strong>
+        {{ currentUser.Lastname }}
+        <strong>EmpNo(รหัสพนักงาน) :</strong>
+        {{currentUser.EmpNo  }}
+      </p>
+      <p>
+        <strong>Position(ตำแหน่งพนักงาน):</strong>
+        {{ currentUser.Position }}
+        <strong>Department(ฝ่ายพนักงาน):</strong>
+        {{ currentUser.Department }}
+        <strong>Section(แผนกพนักงาน) :</strong>
+        {{ currentUser.Section }}
+      </p>
+      <p>
+        <strong>Type_of_Employee(ประเภทพนักงาน):</strong>
+        {{ currentUser.Type_of_Employee }}
+        <strong>Employee_Detail(รายละเอียดพนักงาน):</strong>
+        {{currentUser.Employee_Detail }}
+        <strong>Joined_date(วันที่พนักงานเริ่มงาน) :</strong>
+        {{ currentUser.Joined_date }}
+      </p>
+  
+       
+        <table>
+            <tr>
+              <th>ลำดับ(No)</th>
+              <th>รายการ(List)</th>
+              <th>รายละเอียดสี (Detail Color)</th>
+              <th>รายละเอียดขนาด(Detail Size)</th>
+              <th>จำนวน/ชิ้น (Quantity)</th>
+              <th>มูลค่า(บาท)/ชิ้น (Value(Baht))</th>
+              <th>หมายเหตุ(Remark)</th>
+
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>เสื้อพนักงาน(Uniform-Shirt)</td>
+              <td>สีเทา(Gray Color)</td>
+              <td>  
+                <select id="Size Uniform" name="Size Uniform">
+                  <option ></option>  
+                    <option >S</option>  
+                    <option >M</option>
+                    <option >L</option>  
+                    <option >XL</option>
+                    <option >XXL</option>  
+                    <option >3XL</option>
+                    <option >4XL</option>  
+                    <option >5XL</option>
+              </select></td>
+              <td><input type="Value" class="form-control" id="Value"></td>
+              <td>125 THB </td> 
+              <td><input type="text" class="form-control" id="Remark"></td>                         
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>ชุดคลุมท้อง(Maternity dress   )</td>
+                <td>สีเทา(Gray Color)</td>
+                <td>  
+                  <select id="Size Maternity" name="Size Maternity">
+                    <option ></option>  
+                    <option >M</option>
+                    <option >L</option>
+                    <option >XL</option>
+                    <option >XXL</option>
+                </select></td>
+                <td><input type="Value" class="form-control" id="Value"></td>
+                <td>260 THB </td> 
+                <td><input type="text" class="form-control" id="Remark"></td>                         
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>หมวกแก๊ป(Hat Cap)</td>
+               
+                <td>  
+                  <select id="Color Hat Cap" name="Color Hat Cap">
+                  <option ></option>  
+                  <option >สีกรม</option>
+                  <option >สีฟ้า</option>
+                  <option >สีม่วง</option>
+                  <option >สีเขียว</option>
+                  <option >สีขาว</option>
+                </select></td>
+                <td>ขนาด Free Size</td>
+                <td><input type="Value" class="form-control" id="Value"></td>
+                <td>50 THB </td> 
+                <td><input type="text" class="form-control" id="Remark"></td>                         
+              </tr>
+              
+                                 
+              <tr>
+              <td>4</td>
+              <td>หมวกปีก(Brim Hat)</td>                          
+             
+              <td>  
+                <select id="Color Brim Hat" name="Color Brim Hat">
+                    <option ></option>  
+                    <option >	สีเหลือง</option>
+                    <option >สีขาว</option>
+                    <option >สีชมพู</option>
+                    <option >สีเขียว</option>
+                    <option >สีส้ม</option>
+                    <option >สีน้ำตาล</option>
+                   
+              </select></td>
+              <td>ขนาด Free Size</td>
+              <td><input type="Value" class="form-control" id="Value"></td>
+              <td>35 THB </td> 
+              <td><input type="text" class="form-control" id="Remark"></td>
+            </tr>
+              <tr>
+              <td>5</td>
+              <td>เอี๊ยม(apron)</td>
+             
+              <td>สีเขียว(Green Color)</td>
+              <td>ขนาด Free Size</td>
+              <td><input type="Value" class="form-control" id="Value"></td>
+              <td>50 THB </td> 
+              <td><input type="text" class="form-control" id="Remark"></td>
+            </tr>
+              <tr>
+              <td>6</td>
+              <td>Ears plug</td>
+              <td>แบบ (Model) YAMADA</td>
+              <td>ขนาด Free Size</td>
+              <td><input type="Value" class="form-control" id="Value"></td>
+              <td>19 THB </td> 
+              <td><input type="text" class="form-control" id="Remark"></td>
+            </tr>
+              <tr>
+              <td>7</td>
+              <td>รองเท้าเซฟตี้ (Safety Shoes)</td>
+              <td>สีดำ (Back Color)</td>
+              <td><input type="Value" class="form-control" id="Value"></td>
+              <td><input type="Value" class="form-control" id="Value"></td>
+              <td>500 THB </td> 
+              <td><input type="text" class="form-control" id="Remark"></td>
+            </tr>
+            </table>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Request By(ผู้ข้อ)</mat-label>
+                <input matInput placeholder="">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Approved By(ผู้อนุมัติ)</mat-label>
+                <input matInput placeholder="">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Issued By(ผู้ส่งมอบ)</mat-label>
+                <input matInput placeholder="">
+              </mat-form-field>
+            </p>
+          <div class="button">
+            <button type="submit" class="btn btn-success" >ยืนยัน (Confirm)</button>
+            <button type="submit" class="btn btn-success"color="green" >ยกเลิก (Cancel)</button>
+          </div>
+          
+        </div>
+</body>
+</html>
