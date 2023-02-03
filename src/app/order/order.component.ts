@@ -9,19 +9,8 @@ import { StorageService } from '../_services/storage.service';
 })
 export class OrderComponent implements OnInit {
   currentUser: any;
-  
-  Username: any 
-  Password: any
-  Firstname: any 
-  Lastname: any 
-  EmpNo: any
-  Position: any
-  Department: any
-  Section: any 
-  Type_of_Employee: any 
-  Employee_Detail: any
-  Joined_date: any
-  item: any
+  list: any;
+ 
 
 constructor(private ApiService: ApiService,
   private  StorageService: StorageService) {
@@ -29,9 +18,25 @@ constructor(private ApiService: ApiService,
 }
 
 ngOnInit(): void{
-  //  this.Get_item();
+   this.Get_itemorder();
   this.currentUser = this.StorageService.getUser();
+  
 }
 
+ 
+Get_itemorder(){
+  let data = {
+    mod: 'Get_itemorder',  
+  };
+  this.ApiService.read(data).subscribe((resposne: any) => {
+    console.log(resposne);
+   
+   this.list = resposne[1]['list'];
+     
+      
+  });
+
+  }
 
 }
+//this.Detall= resposne[4]['Detall'];

@@ -1,3 +1,5 @@
+import { Role } from "./Role";
+
 export class User {
 
   Employee_ID!: number;
@@ -12,6 +14,10 @@ export class User {
   Type_of_Employee!: string;
   Employee_Detail!: string;
   Joined_date!: number;
+  role!:Role
 
-    token?: string;
+  token?: string;
+
+
+  
 }

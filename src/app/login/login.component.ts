@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
     username: null,
     password: null
   };
-
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
  
   
   constructor(private formBuilder:FormBuilder,
@@ -58,18 +60,25 @@ export class LoginComponent implements OnInit {
     }; 
     this.ApiService.read(data)
     .pipe(first())
-    .subscribe(data => {
+    .subscribe({
+      next: data => {
       console.log(data);
       
         this.StorageService.saveToken(data.accessToken);
         this.StorageService.saveUser(data);
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
    
         //const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl :'/Order';
        this.router.navigate(['/order']);
       
 
-    },
-    );
+    },  
+     error: err => {
+      this.errorMessage = err.error.message;
+      this.isLoginFailed = true;
+    }
+  });
     }
     
    

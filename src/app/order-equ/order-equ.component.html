@@ -56,7 +56,8 @@
         </nav>
     </div>
     
-      <div class="mp-table">
+      <div class="mp-table" >
+        <form [formGroup]="formoorderequ"   (ngSubmit)="Get_Orderequ()">
        <h1>
         สั่งซื้ออุปกรณ์(Order Equpment)
        </h1>
@@ -88,118 +89,35 @@
        
         <table>
             <tr>
-              <th>ลำดับ(No)</th>
+            
               <th>รายการ(List)</th>
-              <th>รายละเอียดสี (Detail Color)</th>
-              <th>รายละเอียดขนาด(Detail Size)</th>
               <th>จำนวน/ชิ้น (Quantity)</th>
-              <th>มูลค่า(บาท)/ชิ้น (Value(Baht))</th>
               <th>หมายเหตุ(Remark)</th>
+              
 
             </tr>
-            <tr>
-              <td>1</td>
-              <td>เสื้อพนักงาน(Uniform-Shirt)</td>
-              <td>สีเทา(Gray Color)</td>
+            <tr >
+
               <td>  
-                <select id="Size Uniform" name="Size Uniform">
-                  <option ></option>  
-                    <option >S</option>  
-                    <option >M</option>
-                    <option >L</option>  
-                    <option >XL</option>
-                    <option >XXL</option>  
-                    <option >3XL</option>
-                    <option >4XL</option>  
-                    <option >5XL</option>
+                <select id="Size Uniform" formControlName="list">
+                  <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size S ,Price 125$ </option>  
+                    
+                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size M,Price 125$</option>
+                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size L,Price 125$</option>  
+                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size XL,Price 125$</option>
+                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size XXL,Price 125$</option>  
+                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size 3XL,Price 125$</option>
+                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size 4XL,Price 125$</option>  
+                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size 5XL,Price 125$</option>
+                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size S ,Price 260$ </option>  
+                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size M,Price 260$</option>
+                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size L,Price 260$</option>  
+                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size XL,Price 260$</option>
+                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size XXL,Price 260$</option>  
               </select></td>
-              <td><input type="Value" class="form-control" id="Value"></td>
-              <td>125 THB </td> 
-              <td><input type="text" class="form-control" id="Remark"></td>                         
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>ชุดคลุมท้อง(Maternity dress   )</td>
-                <td>สีเทา(Gray Color)</td>
-                <td>  
-                  <select id="Size Maternity" name="Size Maternity">
-                    <option ></option>  
-                    <option >M</option>
-                    <option >L</option>
-                    <option >XL</option>
-                    <option >XXL</option>
-                </select></td>
-                <td><input type="Value" class="form-control" id="Value"></td>
-                <td>260 THB </td> 
-                <td><input type="text" class="form-control" id="Remark"></td>                         
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>หมวกแก๊ป(Hat Cap)</td>
-               
-                <td>  
-                  <select id="Color Hat Cap" name="Color Hat Cap">
-                  <option ></option>  
-                  <option >สีกรม</option>
-                  <option >สีฟ้า</option>
-                  <option >สีม่วง</option>
-                  <option >สีเขียว</option>
-                  <option >สีขาว</option>
-                </select></td>
-                <td>ขนาด Free Size</td>
-                <td><input type="Value" class="form-control" id="Value"></td>
-                <td>50 THB </td> 
-                <td><input type="text" class="form-control" id="Remark"></td>                         
-              </tr>
-              
-                                 
-              <tr>
-              <td>4</td>
-              <td>หมวกปีก(Brim Hat)</td>                          
-             
-              <td>  
-                <select id="Color Brim Hat" name="Color Brim Hat">
-                    <option ></option>  
-                    <option >	สีเหลือง</option>
-                    <option >สีขาว</option>
-                    <option >สีชมพู</option>
-                    <option >สีเขียว</option>
-                    <option >สีส้ม</option>
-                    <option >สีน้ำตาล</option>
-                   
-              </select></td>
-              <td>ขนาด Free Size</td>
-              <td><input type="Value" class="form-control" id="Value"></td>
-              <td>35 THB </td> 
-              <td><input type="text" class="form-control" id="Remark"></td>
-            </tr>
-              <tr>
-              <td>5</td>
-              <td>เอี๊ยม(apron)</td>
-             
-              <td>สีเขียว(Green Color)</td>
-              <td>ขนาด Free Size</td>
-              <td><input type="Value" class="form-control" id="Value"></td>
-              <td>50 THB </td> 
-              <td><input type="text" class="form-control" id="Remark"></td>
-            </tr>
-              <tr>
-              <td>6</td>
-              <td>Ears plug</td>
-              <td>แบบ (Model) YAMADA</td>
-              <td>ขนาด Free Size</td>
-              <td><input type="Value" class="form-control" id="Value"></td>
-              <td>19 THB </td> 
-              <td><input type="text" class="form-control" id="Remark"></td>
-            </tr>
-              <tr>
-              <td>7</td>
-              <td>รองเท้าเซฟตี้ (Safety Shoes)</td>
-              <td>สีดำ (Back Color)</td>
-              <td><input type="Value" class="form-control" id="Value"></td>
-              <td><input type="Value" class="form-control" id="Value"></td>
-              <td>500 THB </td> 
-              <td><input type="text" class="form-control" id="Remark"></td>
+              <td><input type="Value" class="form-control"  formControlName="Quantity"></td>
+              <td><input type="text" class="form-control" formControlName="Remark"></td>                         
+            
             </tr>
             </table>
             <p>
@@ -220,7 +138,7 @@
             <button type="submit" class="btn btn-success" >ยืนยัน (Confirm)</button>
             <button type="submit" class="btn btn-success"color="green" >ยกเลิก (Cancel)</button>
           </div>
-          
+        </form>
         </div>
 </body>
 </html>

@@ -28,10 +28,10 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(data: any) {
+  login(Username:string , Password:string) {
     //console.log(data, 'login');
 
-    return this.http.post<any>(`${this.PHP_API_SERVER }`, {data})
+    return this.http.post<any>(`${this.PHP_API_SERVER }`, {Username, Password})
       .pipe(map(user => {
         console.log(user)
 
@@ -48,13 +48,7 @@ export class AuthenticationService {
 
  }
 
-   // register(data: any){
-    //  return this.http.post<any>(`${this.PHP_API_SERVER }`, {data})
-    //  .pipe(map(user =>{
-    //    console.log(user)
-    //    return user;
-    //  }))
-    //}
+
 
   
 }

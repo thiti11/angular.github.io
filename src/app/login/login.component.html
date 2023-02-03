@@ -5,27 +5,36 @@
     src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
   /></span>
 </mat-toolbar>
-<form class="mb-3" [formGroup]="loginForm"   (ngSubmit)="Get_login()">
+<form class="mb-3"    *ngIf="!isLoggedIn" [formGroup]="loginForm"    (ngSubmit)="f.form.valid && Get_login()"  #f="ngForm"
+novalidate>
   <h1>Login</h1>
 <p>
   <mat-form-field appearance="outline" >
     <mat-label for="Username">Username</mat-label>
-    <input matInput type="text" class="form-control" formControlName="Username" name="Username" >
-
+    <input matInput type="text" class="form-control" formControlName="Username" name="Username"    [(ngModel)]="loginForm.Username"
+    required
+    >
+ 
   </mat-form-field>
 </p>
 <p>
   <mat-form-field appearance="outline">
     <mat-label for="Password">Password</mat-label>
-    <input matInput type="Password" class="form-control" formControlName="Password" name="Password" >
+    <input matInput type="Password" class="form-control" formControlName="Password" name="Password"      [(ngModel)]="loginForm.Password"
+    required
+    minlength="6"
+ 
+    />
   </mat-form-field>
 </p>
 <section>
   
   <div class="example-button-row">
     <button type="submit" mat-raised-button>Login</button>
+
     <button [routerLink]="['/register']"  mat-raised-button>Register</button>
   </div>
+  
 </section>
 </form>
 </body>
