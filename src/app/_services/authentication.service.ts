@@ -48,13 +48,13 @@ export class AuthenticationService {
 
  }
 
-    register(data: any){
-      return this.http.post<any>(`${this.PHP_API_SERVER }`, {data})
-      .pipe(map(user =>{
-        console.log(user)
-        return user;
-      }))
-    }
+   // register(data: any){
+    //  return this.http.post<any>(`${this.PHP_API_SERVER }`, {data})
+    //  .pipe(map(user =>{
+    //    console.log(user)
+    //    return user;
+    //  }))
+    //}
 
   
 }

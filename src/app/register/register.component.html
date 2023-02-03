@@ -39,53 +39,112 @@
       <input matInput formControlName="Position" name="Position">
     </mat-form-field>
   </p>
-  <div>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Department</mat-label>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" formControlName="Department" name="Department">
-    <mat-autocomplete #auto="matAutocomplete"[displayWith]="displayFn" >
-      <mat-option *ngFor="let option of filteredDepartment | async" [value]="option">
-        {{option.name}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Section</mat-label>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoSection" formControlName="Section" name="Section">
-    <mat-autocomplete #autoSection="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let option of filteredSection | async" [value]="option">
-        {{option.name}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</div>
-<div>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Type_of_Employee</mat-label>
-      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoType_of_Employe" formControlName="Type_of_Employee" name="Type_of_Employee">
-      <mat-autocomplete #autoType_of_Employe="matAutocomplete" [displayWith]="displayFn">
-        <mat-option *ngFor="let option of filteredType_of_Employee| async" [value]="option">
-          {{option.name}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Employee_Detail</mat-label>
-      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="autoEmployee_Detail" formControlName="Employee_Detail" name="Employee_Detail">
-      <mat-autocomplete #autoEmployee_Detail="matAutocomplete" [displayWith]="displayFn">
-        <mat-option *ngFor="let option of filteredEmployee_Detail | async" [value]="option">
-          {{option.name}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-  </div>
-  <mat-form-field appearance="fill">
-    <mat-label>Joined_date</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="Joined_date" name="Joined_date">
+  <div  class="form-group">
+    
+    <label for="Department" class="form-label">ฝ่าย(Department)
+    <select formControlName="Department" class="form-select" >
+      <option></option>
+      <option>Quality Assurance  </option>
+      <option>Production</option>
+      <option>Engineering</option>
+      <option>Human Resources</option>
+      <option>Finance&Accounting</option>
+      <option>Management</option>
+      <option>Supply Chain Management</option>
+      <option>Facility&Maintenance</option>
+      <option>Purchase</option>
+    </select></label>
 
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+  <label for="Section" class="form-label">แผนก(Section)
+  <select formControlName="Section" class="form-select">
+    <option></option>
+    <option>IPQA/B</option>
+    <option>IPQA/A</option>
+    <option>QA-MRB 3.5/A</option>
+    <option>CMM/B</option>
+    <option>CQE</option>
+    <option>Document/B</option>
+    <option>CMM/A</option>
+    <option>QA-MRB 2.5/B</option>
+    <option>Document/A</option>
+    <option>Contamination Control/A</option>
+    <option>QA-MRB 2.5/A</option>
+    <option>OQA/A</option>
+    <option>IQA/A</option>
+    <option>OQA/B</option>
+    <option>SPC/A</option>
+    <option>Calibation/A</option>
+    <option>Contamination Control/B </option>
+    <option>IQA/B</option>
+    <option>QA-MRB 3.5/B</option>
+    <option>SPC/B</option>
+    <option>MC-Seagate/A</option>
+    <option>MC-Seagate/B</option>
+    <option>Incoming sort/A</option>
+    <option>VMI-DSP/B</option>
+    <option>VMI-Seagate/B</option>
+    <option>VMI-Seagate/A</option>
+    <option>Sorting/A</option>
+    <option>Sorting/B</option>
+    <option>Washing 3.5/B</option>
+    <option>Incoming sort/B</option>
+    <option>Washing 3.5/A</option>
+    <option>VMI-DSP/A</option>
+    <option>Trainning/B</option>
+    <option>Trainning/A</option>
+    <option>Washing 2.5/A</option>
+    <option>Process Engineering/B</option>
+    <option>Process Engineering/A</option>
+    <option>Automation/A</option>
+    <option>Automation/B</option>
+    <option>Admin/B</option>
+    <option>HRM/A</option>
+    <option>HRD/A</option>
+    <option>Admin/A</option>
+    <option>Accounting/A</option>
+    <option>Payroll</option>
+    <option>IT</option>
+    <option>SHE</option>
+    <option>Management</option>
+    <option>Warehouse/B</option>
+    <option>Warehouse/A</option>
+    <option>CS</option>
+    <option>Material Planning/A</option>
+    <option>Maintenance/B</option>
+    <option>Washing/A</option>
+    <option>Washing/B</option>
+    <option>Maintenance/A</option>
+   <option>Facility/A</option>
+    <option>Purchase</option>
+  </select></label>
+</div>
+
+
+<div class="form-group">
+  <label for="Type_of_Employee" class="form-label">ประเภทพนักงาน(Type of Employee)
+  <select formControlName="Type_of_Employee" class="form-select">
+    <option></option>
+    <option>รายวัน</option>
+    <option>รายเดือน</option>
+  </select></label>
+
+
+
+  <label for="Employee_Detail" class="form-label">รายละเอียดพนักงาน(Employee Detail)
+  <select formControlName="Employee_Detail" class="form-select">
+    <option></option>
+    <option>พนักงานใหม่</option>
+    <option>พนักงานประจำ</option>
+    <option>พนักงานSub</option>
+  </select></label>
+
+</div>
+
+    <label for="Joined_date" class="form-label">วันที่เริ่มงาน(Joined date) 
+      <input type="date" class="form-control" 
+      formControlName="Joined_date" ></label>
+
+  
 </div>
 
 

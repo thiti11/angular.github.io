@@ -23,9 +23,7 @@ export class LoginComponent implements OnInit {
     username: null,
     password: null
   };
-  isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
+
  
   
   constructor(private formBuilder:FormBuilder,
@@ -42,11 +40,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
    //this.Get_login();
-   if (this.StorageService.getToken()) {
-    this.isLoggedIn = true;
-   
-
-  }
+  
    
     this.loginForm = this.formBuilder.group({
       Username: ['', Validators.required],
@@ -69,18 +63,13 @@ export class LoginComponent implements OnInit {
       
         this.StorageService.saveToken(data.accessToken);
         this.StorageService.saveUser(data);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
+   
         //const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl :'/Order';
        this.router.navigate(['/order']);
       
 
     },
-      error => {
-        this.errorMessage = error.message;
-        this.isLoginFailed = true;
-
-      });
+    );
     }
     
    

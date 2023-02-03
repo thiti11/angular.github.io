@@ -157,8 +157,8 @@ filteredEmployee_Detail: Observable<User[]> | undefined;
   };
   this.ApiService.read(data).subscribe(data=> {
     console.log(data);
-    this.router.navigate(['login']);
-
+    //this.router.navigate(['login']);
+    
       
   });
   
