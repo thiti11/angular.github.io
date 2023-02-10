@@ -16,6 +16,10 @@ import {MatDatepickerModule,} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { OrderComponent } from './order/order.component';
 import { OrderEquComponent } from './order-equ/order-equ.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import { UpdateOrderComponent } from './update-order/update-order.component';
+import {  MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -25,7 +29,9 @@ import { OrderEquComponent } from './order-equ/order-equ.component';
     LoginComponent,
     RegisterComponent,
     OrderComponent,
-    OrderEquComponent
+    OrderEquComponent,
+    UpdateOrderComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,10 @@ import { OrderEquComponent } from './order-equ/order-equ.component';
     MatToolbarModule,
     MatAutocompleteModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule
     
    
   ],

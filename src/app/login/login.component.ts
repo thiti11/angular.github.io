@@ -20,8 +20,8 @@ import { StorageService } from '../_services/storage.service';
 export class LoginComponent implements OnInit {
   
   loginForm : any = {
-    username: null,
-    password: null
+    Username: null,
+    Password: null
   };
   isLoggedIn = false;
   isLoginFailed = false;
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
   }
 
   Get_login(){
-    //onsole.log(this.loginForm.value);
+    //console.log(this.loginForm.value);
 
     let data =  {
       mod: 'Get_login',  

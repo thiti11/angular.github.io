@@ -48,6 +48,10 @@ export class AuthenticationService {
 
  }
 
+ delete(No_ID:number){
+  return this.http.post<any>(`${this.PHP_API_SERVER}`,No_ID);
+ }
+
 
 
   

@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OrderComponent } from './order/order.component';
 import { OrderEquComponent } from './order-equ/order-equ.component';
+import { UpdateOrderComponent } from './update-order/update-order.component';
+
 
 
 const routes: Routes = [
@@ -11,7 +13,9 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"order",component:OrderComponent},
-  {path:"orderequ",component:OrderEquComponent}
+  {path:"orderequ",component:OrderEquComponent},
+  {path:"updateorder",component:UpdateOrderComponent}
+ 
   
 ];
 

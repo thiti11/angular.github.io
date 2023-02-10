@@ -1,4 +1,3 @@
-import { Role } from "./Role";
 
 export class User {
 
@@ -14,10 +13,16 @@ export class User {
   Type_of_Employee!: string;
   Employee_Detail!: string;
   Joined_date!: number;
-  role!:Role
+ 
 
   token?: string;
-
-
   
+}
+
+export interface order{
+  No_ID: any;
+  List:string;
+  Hat:string;
+  Quantity:number;
+  Remark:string;
 }
