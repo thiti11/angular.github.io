@@ -115,9 +115,19 @@
       top: 10%;
       left: 30%;
       
-      
   }
-
+  table, td, th {    
+      border: 1px solid #ddd;
+      text-align: left;
+   
+  
+  }
+  
+  table {
+      
+      width: 50%;
+  }
+  
   th, td {
       padding: 15px;
   }
@@ -127,17 +137,8 @@
   }
   
   
-  table {
-    width: 130%;
-   
-    top: 10%;
-    left: 30%;
-  }
   
-  mat-paginator {
-    width: 130%;
-
-  }
-
+  
+  
   
   

@@ -26,7 +26,7 @@
     </div>
     <div class="order">
         <button [routerLink]="['/order']" type="button" class="btn btn-success">ออเดอร์การสั่งซื้อ(Ordering)</button>
-       <button [routerLink]="['/orderequ']"type="button" >สั่งซื้ออุปกรณ์(Order Equipment)</button>
+       <button [routerLink]="['/orderequ']" type="button"  class="btn btn-success">สั่งซื้ออุปกรณ์(Order Equipment)</button>
   
           </div>
       <div class="sidebar-content">
@@ -55,28 +55,59 @@
 
         </nav>
     </div>
-    
+    <form  >
       <div class="mp-table">
        <h1>
         ออเดอร์การสั่งซื้อ(Ordering)
        </h1>
-        <table>
-            <tr>
-              <th>รายการ(List)</th>
-              <th>หมายเหตุ(Remark)</th>
-              <th>อัปเดต(Update)</th>
+       <div class="mat-elevation-z10">
+       <table mat-table [dataSource]="dataSource" >
 
-            </tr>
-            <tr>
-              <td>{{list}}</td>
-              <td></td>
-              <td></td>
-              
-           
-                                     
-            </tr>
-            </table>
-        
+          <!-- Position Column -->
+        <ng-container matColumnDef="no">
+          <th mat-header-cell *matHeaderCellDef> No </th>
+          <td mat-cell *matCellDef="let element; let i = index"> {{no+(i)}} </td>
+        </ng-container>
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="List">
+          <th mat-header-cell *matHeaderCellDef> List </th>
+          <td mat-cell *matCellDef="let element"> {{element.List}} </td>
+        </ng-container>
+      
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <td mat-cell *matCellDef="let element"> {{element.Quantity}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Remark">
+          <th mat-header-cell *matHeaderCellDef> Remark </th>
+          <td mat-cell *matCellDef="let element"> {{element.Remark}} </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Update </th>
+          <td mat-cell *matCellDef="let element"> 
+          <a (click)="Updateorder(element)" mat-raised-button  color="warn" >Update</a>
+        </ng-container>
+        <ng-container matColumnDef="action1">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element"> 
+            <a  (click)="Deleteorder(element.No_ID)" mat-raised-button  color="warn"
+            > Delete</a> </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons 
+                     aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
         </div>
+      </form>
 </body>
 </html>
