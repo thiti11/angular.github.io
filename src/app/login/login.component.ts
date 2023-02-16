@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
    
         //const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl :'/Order';
        this.router.navigate(['/order']);
+  
       
 
     },  

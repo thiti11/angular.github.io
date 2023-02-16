@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from './_models';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,7 @@ export class ApiService {
   update(data: Array<any>) {
     return this.httpClient.post<any>(`${this.PHP_API_SERVER}`, data);
   }
-  
+ 
 
+  
 }

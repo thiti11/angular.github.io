@@ -10,7 +10,10 @@ import { ApiService } from '../api.sercice';
 })
 export class OrderEquComponent implements OnInit {
   currentUser: any;
- 
+  item: any
+  List: any
+ // Date: any
+  //Update_date :any
   formoorderequ: any ={
     list:null,
     Quantity:null,
@@ -33,7 +36,7 @@ export class OrderEquComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.StorageService.getUser();
-    
+    this.Get_itemm() ;
    
   }
    
@@ -41,10 +44,12 @@ export class OrderEquComponent implements OnInit {
     console.log(this.formoorderequ.value)
       let data = {
         mod: 'Get_Order', 
+        
         list: this.formoorderequ.value.list,
         Quantity: this.formoorderequ.value.Quantity,
         Remark: this.formoorderequ.value.Remark,
         Hat: this.formoorderequ.value.Hat,
+        Employee_ID: this.currentUser = this.StorageService.getUser().Employee_ID, 
 
 
       };
@@ -53,11 +58,22 @@ export class OrderEquComponent implements OnInit {
         //this.router.navigate(['login']);
        // this.item = resposne
       //  this.Detall= resposne[4]['Detall'];
-      
-        
-        
-          
+
       });
   
+    }
+    Get_itemm(){
+ 
+      let data = {
+        mod: 'Get_itemm',  
+      };
+      this.ApiService.read(data).subscribe((resposne: any) => {
+        console.log(resposne);
+        this.List = resposne[0]['List'];
+     //  this.List = resposne[this.List]['List'];
+      
+         
+          
+      });
     }
   }

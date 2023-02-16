@@ -36,7 +36,7 @@ export class AppComponent  implements OnInit {
     };
     this.ApiService.read(data).subscribe((resposne: any) => {
       console.log(resposne);
-      this.item = resposne
+    //  this.item = resposne
     //this.Username = resposne[0]['Username'];
        
         

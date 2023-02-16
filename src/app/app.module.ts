@@ -23,6 +23,7 @@ import {  MatPaginatorModule } from '@angular/material/paginator';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import {  MatPaginatorModule } from '@angular/material/paginator';
     OrderComponent,
     OrderEquComponent,
     UpdateOrderComponent
+   
    
   ],
   imports: [

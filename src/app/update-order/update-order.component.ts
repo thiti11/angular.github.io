@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../_services/storage.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.sercice';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -11,7 +13,10 @@ import { ApiService } from '../api.sercice';
 })
 export class UpdateOrderComponent implements OnInit {
   currentUser: any;
-  element:any;
+  currentOrder: any;
+  
+  
+ 
    
   formoorderequ: any ={
     no:null,
@@ -20,12 +25,13 @@ export class UpdateOrderComponent implements OnInit {
     Remark:null,
     Hat:null
   }
+  
 
   constructor(    private formBuilder:FormBuilder,
     private  StorageService: StorageService,
-    private ApiService:ApiService) { 
+    private ApiService:ApiService,
+    private router:ActivatedRoute) { 
       this.formoorderequ = this.formBuilder.group({
-        no: ['', Validators.required],
         list: ['', Validators.required],
         Quantity: ['', Validators.required],
         Remark: ['', Validators.required],
@@ -34,15 +40,21 @@ export class UpdateOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.StorageService.getUser();
+  //  this.currentOrder = this.router.snapshot.params['No_ID']
+    
+   
+   // this.Get_Updateorder();
   
   }
-
+ 
 
   Get_Updateorder(){
     console.log(this.formoorderequ.value)
     
     let data = {
       mod: 'Get_Updateorder', 
+      data:this.router.snapshot.params['No_ID'],
+       
       list: this.formoorderequ.value.list,
       Quantity: this.formoorderequ.value.Quantity,
       Remark: this.formoorderequ.value.Remark,
@@ -52,10 +64,8 @@ export class UpdateOrderComponent implements OnInit {
     };
     this.ApiService.read(data).subscribe(data =>{
       console.log(data);
-      
     
-      
-      
+
         
     });
     }

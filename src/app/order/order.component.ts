@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/api.sercice';
 import { StorageService } from '../_services/storage.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -17,7 +17,8 @@ export class OrderComponent implements OnInit {
   List: any;
   dataSource:any;
   no=0;
-  
+
+
  
 
   displayedColumns: string[] = ['no','List',  'Quantity', 'Remark','action','action1'];
@@ -29,14 +30,15 @@ constructor(
   private formBuilder:FormBuilder,
   private ApiService: ApiService,
   private  StorageService: StorageService,
-  private Router:Router) {
-  
+  private Router:Router,
+  ) {
+ 
 }
 
 ngOnInit(): void{
-   this.Get_itemorder();
+  this.Get_itemorder();
   this.currentUser = this.StorageService.getUser();
-    
+ 
  
 }
 
@@ -45,6 +47,7 @@ ngOnInit(): void{
 Get_itemorder(){
   let data = {
     mod: 'Get_itemorder',  
+    Employee_ID:this.StorageService.getUser().Employee_ID,
     
   };
   this.ApiService.read(data).subscribe(resposne => {
@@ -58,10 +61,13 @@ Get_itemorder(){
 
   }
 
-  Updateorder(element: any){
-    console.log(element);
-    this.Router.navigate(['/updateorder']);
-  }
+  Updateorder(No_ID:number){
+    console.log(No_ID);
+ 
+
+   
+    this.Router.navigate(['/updateorder',No_ID]);
+}
 
   Deleteorder(No_ID:number){
   console.log(No_ID);
@@ -74,9 +80,10 @@ Get_itemorder(){
       
     }; 
     this.ApiService.delete(data).subscribe(data =>{
-      //console.log(data);
-      this.dataSource.data.splice(No_ID, 1);
-      this.dataSource._updateChangeSubscription(this.dataSource);
+      console.log(data);
+      
+    //  this.dataSource.data.splice(No_ID, 1);
+     // this.dataSource._updateChangeSubscription(this.dataSource);
     
     });
 

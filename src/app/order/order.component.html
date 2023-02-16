@@ -90,7 +90,7 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Update </th>
           <td mat-cell *matCellDef="let element"> 
-          <a (click)="Updateorder(element)" mat-raised-button  color="warn" >Update</a>
+          <a (click)="Updateorder(element.No_ID)" mat-raised-button  color="warn" >Update</a>
         </ng-container>
         <ng-container matColumnDef="action1">
           <th mat-header-cell *matHeaderCellDef> Delete </th>
