@@ -64,24 +64,36 @@
        <p>
         <strong>FirstName(ชื่อ):</strong>
         {{currentUser.Firstname  }}
+    </p>
+    <p>
         <strong>Lastname(นามสกุล):</strong>
         {{ currentUser.Lastname }}
+    </p>
+    <p>
         <strong>EmpNo(รหัสพนักงาน) :</strong>
         {{currentUser.EmpNo  }}
-      </p>
-      <p>
+    </p>
+    <p>
         <strong>Position(ตำแหน่งพนักงาน):</strong>
         {{ currentUser.Position }}
+    </p>
+    <p>
         <strong>Department(ฝ่ายพนักงาน):</strong>
         {{ currentUser.Department }}
+    </p>
+    <p>
         <strong>Section(แผนกพนักงาน) :</strong>
         {{ currentUser.Section }}
       </p>
       <p>
         <strong>Type_of_Employee(ประเภทพนักงาน):</strong>
         {{ currentUser.Type_of_Employee }}
+    </p>
+    <p>
         <strong>Employee_Detail(รายละเอียดพนักงาน):</strong>
         {{currentUser.Employee_Detail }}
+    </p>
+    <p>
         <strong>Joined_date(วันที่พนักงานเริ่มงาน) :</strong>
         {{ currentUser.Joined_date }}
       </p>
@@ -98,10 +110,11 @@
             </tr>
             <tr >
 
-              <td>  
-                <select id="Size Uniform" formControlName="list">
-                  <option > {{List}}</option>  
-              </select></td>
+              <td>
+                <input class="form-control" list="datalistOptions" id="exampleDataList" formControlName="list" placeholder="">
+                <datalist id="datalistOptions">
+                  <option *ngFor="let post of item" [value]="post.List">
+              </datalist> </td>
               <td><input type="Value" class="form-control"  formControlName="Quantity"></td>
               <td><input type="text" class="form-control" formControlName="Remark"></td>                         
             
@@ -111,7 +124,7 @@
             <p>
               <mat-form-field appearance="outline">
                 <mat-label>Request By(ผู้ข้อ)</mat-label>
-                <input matInput placeholder="">
+                <input matInput placeholder="" formControlName="Request_By">
               </mat-form-field>
               <mat-form-field appearance="outline">
                 <mat-label>Approved By(ผู้อนุมัติ)</mat-label>
@@ -122,7 +135,7 @@
                 <input matInput placeholder="">
               </mat-form-field>
             </p>
-          <div class="button">
+          <div class="button1">
             <button  type="submit" class="btn btn-success" >ยืนยัน (Confirm)</button>
             <button [routerLink]="['/order']" type="submit" class="btn btn-success"color="green" >ยกเลิก (Cancel)</button>
           </div>

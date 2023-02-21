@@ -13,8 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UpdateOrderComponent implements OnInit {
   currentUser: any;
-  currentOrder: any;
-  
+  //currentOrder: any;
+  item: any
   
  
    
@@ -71,4 +71,18 @@ export class UpdateOrderComponent implements OnInit {
     }
 
  
+    Get_itemm(){
+ 
+      let data = {
+        mod: 'Get_itemm',  
+      };
+      this.ApiService.read(data).subscribe((resposne: any) => {
+        console.log(resposne);
+       this.item = resposne
+     //  this.List = resposne[this.List]['List'];
+      
+         
+          
+      });
+    }
 }

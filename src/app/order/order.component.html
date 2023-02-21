@@ -27,19 +27,18 @@
     <div class="order">
         <button [routerLink]="['/order']" type="button" class="btn btn-success">ออเดอร์การสั่งซื้อ(Ordering)</button>
        <button [routerLink]="['/orderequ']" type="button"  class="btn btn-success">สั่งซื้ออุปกรณ์(Order Equipment)</button>
+       <button [routerLink]="['/admin']" type="button"  class="btn btn-success">ข้อมูลส่วนตัว</button>
+       
   
           </div>
       <div class="sidebar-content">
         
         <div class="sidebar-header">
            
-          <div class="user-pic">
-            <img class="img-responsive img-rounded" src="https://sv1.picz.in.th/images/2022/12/21/JNIGHy.jpg"
-              alt="User picture">
-          </div>
+        
           <div class="user-info">
             <span class="user-name">
-              <strong>{{ currentUser.Firstname }} </strong>
+              <strong>ผู้ใช้งาน: {{ currentUser.Firstname }}{{currentUser.Lastname}} </strong>
             </span>
           
           </div>
@@ -49,7 +48,7 @@
     
         </div><br>
         <div class="sidebar-loguout">
-          <button [routerLink]="['/login']" type="submit" class="btn btn-success" >ออกจากระบบ(Logout)</button>
+          <button  (click)="logout()"  type="submit" class="btn btn-success" >ออกจากระบบ(Logout)</button>
         </div>
     </div>
 
@@ -107,7 +106,9 @@
                      aria-label="Select page of periodic elements">
         </mat-paginator>
       </div>
+      
         </div>
+        
       </form>
 </body>
 </html>

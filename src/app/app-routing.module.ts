@@ -6,10 +6,7 @@ import { OrderComponent } from './order/order.component';
 import { OrderEquComponent } from './order-equ/order-equ.component';
 import { UpdateOrderComponent } from './update-order/update-order.component';
 
-
-
-
-
+import { Role } from './_models/role';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
@@ -22,10 +19,9 @@ const routes: Routes = [
 
   {path:"orderequ",component:OrderEquComponent},
 
-  {path:"updateorder/:No_ID",component:UpdateOrderComponent}
-
- 
- 
+  {path:"updateorder/:No_ID",component:UpdateOrderComponent},
+  
+  
   
 ];
 

@@ -38,8 +38,7 @@ export class AppComponent  implements OnInit {
       console.log(resposne);
     //  this.item = resposne
     //this.Username = resposne[0]['Username'];
-       
-        
+   
     });
   }
  

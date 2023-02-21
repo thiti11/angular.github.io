@@ -11,9 +11,7 @@ import { ApiService } from '../api.sercice';
 export class OrderEquComponent implements OnInit {
   currentUser: any;
   item: any
-  List: any
- // Date: any
-  //Update_date :any
+  
   formoorderequ: any ={
     list:null,
     Quantity:null,
@@ -30,7 +28,9 @@ export class OrderEquComponent implements OnInit {
         list: ['', Validators.required],
         Quantity: ['', Validators.required],
         Remark: ['', Validators.required],
-        Hat: ['', Validators.required]
+        Request_By: ['', Validators.required],
+        
+        
     });
     }
 
@@ -48,7 +48,9 @@ export class OrderEquComponent implements OnInit {
         list: this.formoorderequ.value.list,
         Quantity: this.formoorderequ.value.Quantity,
         Remark: this.formoorderequ.value.Remark,
-        Hat: this.formoorderequ.value.Hat,
+        Request_By: this.formoorderequ.value.Request_By,
+    
+        
         Employee_ID: this.currentUser = this.StorageService.getUser().Employee_ID, 
 
 
@@ -69,7 +71,7 @@ export class OrderEquComponent implements OnInit {
       };
       this.ApiService.read(data).subscribe((resposne: any) => {
         console.log(resposne);
-        this.List = resposne[0]['List'];
+       this.item = resposne
      //  this.List = resposne[this.List]['List'];
       
          

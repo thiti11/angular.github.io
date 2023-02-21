@@ -98,23 +98,11 @@
             </tr>
             <tr >
 
-              <td>  
-                <select id="Size Uniform" formControlName="list">
-                  <option ></option>  
-                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size S ,Price 125$ </option>  
-                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size M,Price 125$</option>
-                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size L,Price 125$</option>  
-                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size XL,Price 125$</option>
-                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size XXL,Price 125$</option>  
-                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size 3XL,Price 125$</option>
-                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size 4XL,Price 125$</option>  
-                    <option >เสื้อพนักงาน(Uniform-Shirt),สีเทา(Gray Color),Size 5XL,Price 125$</option>
-                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size S ,Price 260$ </option>  
-                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size M,Price 260$</option>
-                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size L,Price 260$</option>  
-                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size XL,Price 260$</option>
-                    <option >ชุดคลุมท้อง(Maternity dress),สีเทา(Gray Color),Size XXL,Price 260$</option>  
-              </select></td>
+              <td>
+                <input class="form-control" list="datalistOptions" id="exampleDataList" formControlName="list" placeholder="">
+                <datalist id="datalistOptions">
+                  <option *ngFor="let post of item" [value]="post.List">
+              </datalist> </td>
               <td><input type="Value" class="form-control"  formControlName="Quantity"></td>
               <td><input type="text" class="form-control" formControlName="Remark"></td>                         
             

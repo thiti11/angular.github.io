@@ -7,6 +7,7 @@ import { User } from './_models';
   providedIn: 'root'
 })
 export class ApiService {
+  redirectUrl: any;
 
   constructor(private httpClient: HttpClient) { }
 

@@ -20,6 +20,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import { UpdateOrderComponent } from './update-order/update-order.component';
 import {  MatPaginatorModule } from '@angular/material/paginator';
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 
 
@@ -32,6 +35,9 @@ import {  MatPaginatorModule } from '@angular/material/paginator';
     OrderComponent,
     OrderEquComponent,
     UpdateOrderComponent
+ 
+  
+    
    
    
   ],
@@ -51,7 +57,9 @@ import {  MatPaginatorModule } from '@angular/material/paginator';
     MatNativeDateModule,
     MatSelectModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ToastrModule.forRoot()
+    
     
    
   ],

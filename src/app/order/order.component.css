@@ -111,33 +111,27 @@
   /*-----------------------------table-------------------------------------------------*/
   
   .mp-table{
-      position: absolute;
-      top: 10%;
-      left: 30%;
-      
-      
-  }
+    position: absolute;
+    top: 10%; left: 30%;
+    width:50%;
 
-  th, td {
-      padding: 15px;
-  }
-  h1 {
-  text-align: center;
-  transform: translate(-5%,-20%);
-  }
-  
-  
-  table {
-    width: 130%;
-   
-    top: 10%;
-    left: 30%;
-  }
-  
-  mat-paginator {
-    width: 130%;
+    
+}
 
-  }
+
+h1 {
+text-align: center;
+transform: translate(0%,-20%);
+}
+
+
+table,  mat-paginator {
+  
+  width: 100%;
+ 
+  top: 30%;
+  left: 30%;
+}
 
   
   

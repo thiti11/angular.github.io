@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from '../_services';
 import { ApiService } from '../api.sercice';
-import { User } from '../_models';
 import { Route, Router } from '@angular/router';
 import { first } from 'rxjs';
 import { StorageService } from '../_services/storage.service';
+
+
 
 
 
@@ -23,16 +24,17 @@ export class LoginComponent implements OnInit {
     Username: null,
     Password: null
   };
-  isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
+
+ 
+
  
   
   constructor(private formBuilder:FormBuilder,
     private AuthenticationService:AuthenticationService,
     private router:Router,
     private ApiService:ApiService,
-    private StorageService:StorageService  
+    private StorageService:StorageService,
+     
 ) { 
   
     
@@ -42,12 +44,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
    //this.Get_login();
-  
-   
     this.loginForm = this.formBuilder.group({
       Username: ['', Validators.required],
       Password: ['', Validators.required]
   });
+
+
+  
   }
 
   Get_login(){
@@ -59,29 +62,29 @@ export class LoginComponent implements OnInit {
       Password: this.loginForm.value.Password,
     }; 
     this.ApiService.read(data)
-    .pipe(first())
+  
     .subscribe({
       next: data => {
       console.log(data);
+      if(data != null){
+              //this.StorageService.saveToken(data.accessToken);
+              this.StorageService.saveUser(data);
+              
+              //const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl :'/Order';
+               this.router.navigate(['/order']);
+              
+               alert("Login Success");
+              
+      }else{
+        alert ('Login Failed');
+       
       
-        this.StorageService.saveToken(data.accessToken);
-        this.StorageService.saveUser(data);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-   
-        //const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl :'/Order';
-       this.router.navigate(['/order']);
-  
-      
+      }
 
     },  
-     error: err => {
-      this.errorMessage = err.error.message;
-      this.isLoginFailed = true;
-    }
-  });
-    }
-    
-   
+    });
+  }
+
+  
 }
 

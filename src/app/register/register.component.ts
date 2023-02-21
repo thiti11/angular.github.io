@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map, Observable, startWith } from 'rxjs';
+
 
 import { ApiService } from '../api.sercice';
 
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     Employee_Detail:null,
     Joined_date:null,
   };
-  myControl = new FormControl();
+ 
  
 
   
@@ -87,7 +87,7 @@ export class RegisterComponent implements OnInit {
   };
   this.ApiService.read(data).subscribe(data=> {
     console.log(data);
-    //this.router.navigate(['login']);
+    this.router.navigate(['login']);
     
       
   });

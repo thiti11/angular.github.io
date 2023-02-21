@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from '../_services/authentication.service';
 
 
 @Component({
@@ -29,8 +30,9 @@ export class OrderComponent implements OnInit {
 constructor(
   private formBuilder:FormBuilder,
   private ApiService: ApiService,
-  private  StorageService: StorageService,
+  private StorageService: StorageService,
   private Router:Router,
+ 
   ) {
  
 }
@@ -42,6 +44,10 @@ ngOnInit(): void{
  
 }
 
+ logout(): void {
+  this.StorageService.signOut();
+  this.Router.navigate(['/login']);
+}
 
  
 Get_itemorder(){
