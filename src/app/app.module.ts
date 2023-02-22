@@ -21,6 +21,9 @@ import {MatTableModule} from '@angular/material/table';
 import { UpdateOrderComponent } from './update-order/update-order.component';
 import {  MatPaginatorModule } from '@angular/material/paginator';
 import { ToastrModule } from 'ngx-toastr';
+import { AdminComponent } from './admin/admin.component';
+import { ApprovalComponent } from './approval/approval.component';
+
 
 
 
@@ -34,7 +37,9 @@ import { ToastrModule } from 'ngx-toastr';
     RegisterComponent,
     OrderComponent,
     OrderEquComponent,
-    UpdateOrderComponent
+    UpdateOrderComponent,
+    AdminComponent,
+    ApprovalComponent
  
   
     

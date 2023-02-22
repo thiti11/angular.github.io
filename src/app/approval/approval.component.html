@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <mat-toolbar >
+      <span>Jcy</span>
+      <span class="example-spacer"></span>
+          <strong>{{ currentUser.Firstname }}</strong>
+          <strong>{{ currentUser.Lastname }}</strong>
+      <a mat-button  (click)="logout()"> Logout</a>
+    </mat-toolbar>
+    <form [formGroup]="formapproval"   (ngSubmit)="Get_approval">
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Approved By</mat-label>
+            <input matInput >
+            
+          </mat-form-field>
+        </p>
+          <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Issued By</mat-label>
+            <input matInput >
+    
+          </mat-form-field>
+        </p>
+        <div class="button1">
+            <button  type="submit" class="btn btn-success" >ยืนยัน (Confirm)</button>
+            
+          </div>
+        </form>
+</body>
+</html>

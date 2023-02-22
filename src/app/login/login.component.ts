@@ -67,13 +67,20 @@ export class LoginComponent implements OnInit {
       next: data => {
       console.log(data);
       if(data != null){
+        
               //this.StorageService.saveToken(data.accessToken);
               this.StorageService.saveUser(data);
-              
+              if(data.Role=="Admin"){
+                this.router.navigate(['/Admin']);
+              }else{
+               // console.log("failed")
+                
+                this.router.navigate(['/order']);
+              }
               //const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl :'/Order';
-               this.router.navigate(['/order']);
+            //   this.router.navigate(['/order']);
               
-               alert("Login Success");
+               //alert("Login Success");
               
       }else{
         alert ('Login Failed');

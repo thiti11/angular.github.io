@@ -1,9 +1,14 @@
-/*.example-spacer {
+.example-spacer {
     
     flex: 1 1 auto;
   }
-
+  
   .mat-toolbar {
     background: #2bd48e;
     color: #ffffff;
-  }*/
+    
+  }
+   
+
+    
+    

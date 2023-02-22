@@ -1,7 +1,13 @@
-mat-toolbar {
-  background-color: rgb(15, 146, 15);
+.example-spacer {
+    
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background: #2bd48e;
+  color: #ffffff;
   
-} 
+}
 .mb-3 {
   width: 250px;
   height: 200px;

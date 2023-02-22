@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <mat-toolbar >
+      <span>Jcy</span>
+      <span class="example-spacer"></span>
+          <strong>{{ currentUser.Firstname }}</strong>
+          <strong>{{ currentUser.Lastname }}</strong>
+      <a mat-button  (click)="logout()"> Logout</a>
+    </mat-toolbar>
+    <form class="mp-table">
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+          
+              <!-- Position Column -->
+              <ng-container matColumnDef="no">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element; let i = index"> {{no+(i)}}</td>
+              </ng-container>
+
+                 <!-- Name Column -->
+                 <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Firstname}} </td>
+                  </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="List">
+                <th mat-header-cell *matHeaderCellDef> List </th>
+                <td mat-cell *matCellDef="let element"> {{element.List}} </td>
+              </ng-container>
+          
+              <!-- Weight Column -->
+              <ng-container matColumnDef="Quantity">
+                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.Quantity}} </td>
+              </ng-container>
+          
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="Remark">
+                <th mat-header-cell *matHeaderCellDef> Remark </th>
+                <td mat-cell *matCellDef="let element"> {{element.Remark}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="approval">
+                <th mat-header-cell *matHeaderCellDef> approval </th>
+                <td mat-cell *matCellDef="let element"> 
+                <a (click)="sign_approval(element.No_ID)" mat-raised-button  color="warn" >approval</a>
+              </ng-container>
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                           showFirstLastButtons
+                           aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+          
+        </form>
+</body>
+</html>

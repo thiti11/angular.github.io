@@ -11,50 +11,16 @@
 
 </head>
 <body>
+  <mat-toolbar >
+    <span>Jcy</span>
+    <span class="example-spacer"></span>
+        <strong>{{ currentUser.Firstname }}</strong>
+        <strong>{{ currentUser.Lastname }}</strong>
+    <a mat-button [routerLink]="['/order']"> ออเดอร์การสั่งซื้อ</a>
+    <a mat-button [routerLink]="['/orderequ']"> สั่งซื้ออุปกรณ์</a>
+    <a mat-button  (click)="logout()"> Logout</a>
+  </mat-toolbar>
 
-
-  
-<div class="page-wrapper chiller-theme toggled">
-    <nav id="sidebar" class="sidebar-wrapper">
-        <div class="img">
-        <img
-        width="120"
-        
-        alt="Jcy"
-        src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
-      />
-    </div>
-    <div class="order">
-      <button [routerLink]="['/order']" type="button" class="btn btn-success">ออเดอร์การสั่งซื้อ(Ordering)</button>
-      <button [routerLink]="['/orderequ']" type="button" class="btn btn-success">สั่งซื้ออุปกรณ์(Order Equipment)</button>
-
-        </div>
-      <div class="sidebar-content">
-        
-        <div class="sidebar-header">
-          <div class="user-pic">
-            <img class="img-responsive img-rounded" src="https://sv1.picz.in.th/images/2022/12/21/JNIGHy.jpg"
-              alt="User picture">
-          </div>
-          
-          <div class="user-info">
-            <span class="user-name">
-              <strong>{{ currentUser.Firstname }}</strong>
-            </span>
-          
-          </div>
-        </div>
-        <div class="sidebar-memu">
-           
-    
-        </div><br>
-        <div class="sidebar-loguout">
-          <button [routerLink]="['/login']" type="submit" class="btn btn-success" >ออกจากระบบ(Logout)</button>
-        </div>
-    </div>
-
-        </nav>
-    </div>
     
       <div class="mp-table" >
         <form [formGroup]="formoorderequ"   (ngSubmit)="Get_Orderequ()">

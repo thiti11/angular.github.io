@@ -11,50 +11,17 @@
 
 </head>
 <body>
+ <mat-toolbar >
+    <span>Jcy</span>
+    <span class="example-spacer"></span>
+        <strong>{{ currentUser.Firstname }}</strong>
+        <strong>{{ currentUser.Lastname }}</strong>
+    <a mat-button [routerLink]="['/order']"> ออเดอร์การสั่งซื้อ</a>
+    <a mat-button [routerLink]="['/orderequ']"> สั่งซื้ออุปกรณ์</a>
+    <a mat-button (click)="logout()"> Logout</a>
+  </mat-toolbar>
 
 
-  
-<div class="page-wrapper chiller-theme toggled">
-    <nav id="sidebar" class="sidebar-wrapper">
-        <div class="img">
-        <img
-        width="120"
-        
-        alt="Jcy"
-        src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
-      />
-    </div>
-    <div class="order">
-      <button [routerLink]="['/order']" type="button" class="btn btn-success">ออเดอร์การสั่งซื้อ(Ordering)</button>
-      <button [routerLink]="['/orderequ']" type="button" class="btn btn-success">สั่งซื้ออุปกรณ์(Order Equipment)</button>
-
-        </div>
-      <div class="sidebar-content">
-        
-        <div class="sidebar-header">
-          <div class="user-pic">
-            <img class="img-responsive img-rounded" src="https://sv1.picz.in.th/images/2022/12/21/JNIGHy.jpg"
-              alt="User picture">
-          </div>
-          
-          <div class="user-info">
-            <span class="user-name">
-              <strong>{{ currentUser.Firstname }}</strong>
-            </span>
-          
-          </div>
-        </div>
-        <div class="sidebar-memu">
-           
-    
-        </div><br>
-        <div class="sidebar-loguout">
-          <button [routerLink]="['/login']" type="submit" class="btn btn-success" >ออกจากระบบ(Logout)</button>
-        </div>
-    </div>
-
-        </nav>
-    </div>
     
       <div class="mp-table" >
         <form [formGroup]="formoorderequ"   (ngSubmit)="Get_Updateorder()">
@@ -64,24 +31,36 @@
        <p>
         <strong>FirstName(ชื่อ):</strong>
         {{currentUser.Firstname  }}
+    </p>
+    <p>
         <strong>Lastname(นามสกุล):</strong>
         {{ currentUser.Lastname }}
+    </p>
+    <p>
         <strong>EmpNo(รหัสพนักงาน) :</strong>
         {{currentUser.EmpNo  }}
-      </p>
-      <p>
+    </p>
+    <p>
         <strong>Position(ตำแหน่งพนักงาน):</strong>
         {{ currentUser.Position }}
+    </p>
+    <p>
         <strong>Department(ฝ่ายพนักงาน):</strong>
         {{ currentUser.Department }}
+    </p>
+    <p>
         <strong>Section(แผนกพนักงาน) :</strong>
         {{ currentUser.Section }}
       </p>
       <p>
         <strong>Type_of_Employee(ประเภทพนักงาน):</strong>
         {{ currentUser.Type_of_Employee }}
+    </p>
+    <p>
         <strong>Employee_Detail(รายละเอียดพนักงาน):</strong>
         {{currentUser.Employee_Detail }}
+    </p>
+    <p>
         <strong>Joined_date(วันที่พนักงานเริ่มงาน) :</strong>
         {{ currentUser.Joined_date }}
       </p>
@@ -95,6 +74,24 @@
               <th>หมายเหตุ(Remark)</th>
               
 
+            </tr>
+            <tr >
+
+              <td></td>
+              <td></td>
+              <td></td>                         
+            
+            </tr>
+            <tr >
+
+              <td>
+                <input class="form-control" list="datalistOptions" id="exampleDataList" formControlName="list" placeholder="">
+                <datalist id="datalistOptions">
+                  <option *ngFor="let post of item" [value]="post.List">
+              </datalist> </td>
+              <td><input type="Value" class="form-control"  formControlName="Quantity"></td>
+              <td><input type="text" class="form-control" formControlName="Remark"></td>                         
+            
             </tr>
             <tr >
 
