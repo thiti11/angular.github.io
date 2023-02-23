@@ -23,6 +23,8 @@ import {  MatPaginatorModule } from '@angular/material/paginator';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminComponent } from './admin/admin.component';
 import { ApprovalComponent } from './approval/approval.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -39,7 +41,8 @@ import { ApprovalComponent } from './approval/approval.component';
     OrderEquComponent,
     UpdateOrderComponent,
     AdminComponent,
-    ApprovalComponent
+    ApprovalComponent,
+
  
   
     
@@ -63,7 +66,9 @@ import { ApprovalComponent } from './approval/approval.component';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatCardModule,
+    MatIconModule,
     
     
    

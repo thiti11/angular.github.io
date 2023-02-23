@@ -69,7 +69,7 @@ Get_itemorder(){
 
   Updateorder(No_ID:number){
     console.log(No_ID);
- 
+    
     this.Router.navigate(['/updateorder',No_ID]);
 }
 
@@ -86,9 +86,10 @@ Get_itemorder(){
     this.ApiService.delete(data).subscribe(data =>{
       console.log(data);
       
-    //  this.dataSource.data.splice(No_ID, 1);
-     // this.dataSource._updateChangeSubscription(this.dataSource);
-    
+     
+     // this.dataSource.data.splice(No_ID,1);
+     // this.dataSource._updateChangeSubscription();
+     
     });
 
 

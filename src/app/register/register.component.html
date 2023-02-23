@@ -15,7 +15,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput formControlName="Password" name="Password">
+      <input type="Password" matInput formControlName="Password" name="Password">
     </mat-form-field>
   </p>
   <p>
@@ -139,107 +139,8 @@
       </mat-select>
     </mat-form-field>
     
-    </div><div>
-      <mat-form-field appearance="fill">
-        <mat-label>Department</mat-label>
-        <mat-select formControlName="Department" >
-          <mat-option></mat-option>
-          <mat-option value="Quality Assurance">Quality Assurance</mat-option>
-          <mat-option value="Production">Production</mat-option>
-          <mat-option value="Engineering">Engineering</mat-option>
-          <mat-option value="Human Resources">Human Resources</mat-option>
-          <mat-option value="รายเดือน">Finance&Accounting</mat-option>
-          <mat-option value="รายเดือน">Management</mat-option>
-          <mat-option value="รายเดือน">Supply Chain Management</mat-option>
-          <mat-option value="รายเดือน">Facility&Maintenance</mat-option>
-          <mat-option value="รายเดือน">Purchase</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Section</mat-label>
-        <mat-select formControlName="Section">
-          <mat-option></mat-option>
-          <mat-option value="รายเดือน">IPQA/B</mat-option>
-        <mat-option value="รายเดือน">IPQA/A</mat-option>
-        <mat-option value="รายเดือน">QA-MRB 3.5/A</mat-option>
-        <mat-option value="รายเดือน">CMM/B</mat-option>
-        <mat-option value="รายเดือน">CQE</mat-option>
-        <mat-option value="รายเดือน">Document/B</mat-option>
-        <mat-option value="รายเดือน">CMM/A</mat-option>
-        <mat-option value="รายเดือน">QA-MRB 2.5/B</mat-option>
-        <mat-option value="รายเดือน">Document/A</mat-option>
-        <mat-option value="รายเดือน">Contamination Control/A</mat-option>
-        <mat-option value="รายเดือน">QA-MRB 2.5/A</mat-option>
-        <mat-option value="รายเดือน">OQA/A</mat-option>
-        <mat-option value="รายเดือน">IQA/A</mat-option>
-        <mat-option value="รายเดือน">OQA/B</mat-option>
-        <mat-option value="รายเดือน">SPC/A</mat-option>
-        <mat-option value="รายเดือน">Calibation/A</mat-option>
-        <mat-option value="รายเดือน">Contamination Control/B </mat-option>
-        <mat-option value="รายเดือน">IQA/B</mat-option>
-        <mat-option value="รายเดือน">QA-MRB 3.5/B</mat-option>
-        <mat-option value="รายเดือน">SPC/B</mat-option>
-        <mat-option value="รายเดือน">MC-Seagate/A</mat-option>
-        <mat-option value="รายเดือน">MC-Seagate/B</mat-option>
-        <mat-option value="รายเดือน">Incoming sort/A</mat-option>
-        <mat-option value="รายเดือน">VMI-DSP/B</mat-option>
-        <mat-option value="รายเดือน">VMI-Seagate/B</mat-option>
-        <mat-option value="รายเดือน">VMI-Seagate/A</mat-option>
-        <mat-option value="รายเดือน">Sorting/A</mat-option>
-        <mat-option value="รายเดือน">Sorting/B</mat-option>
-        <mat-option value="รายเดือน">Washing 3.5/B</mat-option>
-        <mat-option value="รายเดือน">Incoming sort/B</mat-option>
-        <mat-option value="รายเดือน">Washing 3.5/A</mat-option>
-        <mat-option value="รายเดือน">VMI-DSP/A</mat-option>
-        <mat-option value="รายเดือน">Trainning/B</mat-option>
-        <mat-option value="รายเดือน">Trainning/A</mat-option>
-        <mat-option value="รายเดือน">Washing 2.5/A</mat-option>
-        <mat-option value="รายเดือน">Process Engineering/B</mat-option>
-        <mat-option value="รายเดือน">Process Engineering/A</mat-option>
-        <mat-option value="รายเดือน">Automation/A</mat-option>
-        <mat-option value="รายเดือน">Automation/B</mat-option>
-        <mat-option value="รายเดือน">Admin/B</mat-option>
-        <mat-option value="รายเดือน">HRM/A</mat-option>
-        <mat-option value="รายเดือน">HRD/A</mat-option>
-        <mat-option value="รายเดือน">Admin/A</mat-option>
-        <mat-option value="รายเดือน">Accounting/A</mat-option>
-        <mat-option value="รายเดือน">Payroll</mat-option>
-        <mat-option value="รายเดือน">IT</mat-option>
-        <mat-option value="รายเดือน">SHE</mat-option>
-        <mat-option value="รายเดือน">Management</mat-option>
-        <mat-option value="รายเดือน">Warehouse/B</mat-option>
-        <mat-option value="รายเดือน">Warehouse/A</mat-option>
-        <mat-option value="รายเดือน">CS</mat-option>
-        <mat-option value="รายเดือน">Material Planning/A</mat-option>
-        <mat-option value="รายเดือน">Maintenance/B</mat-option>
-        <mat-option value="รายเดือน">Washing/A</mat-option>
-        <mat-option value="รายเดือน">Washing/B</mat-option>
-        <mat-option value="รายเดือน">Maintenance/A</mat-option>
-        <mat-option  value="รายเดือน">Facility/A</mat-option>
-        <mat-option value="รายเดือน">Purchase</mat-option>
-        </mat-select>
-      </mat-form-field>
-      </div>
-      <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Type_of_Employee</mat-label>
-        <mat-select formControlName="Type_of_Employee">
-          <mat-option ></mat-option>
-          <mat-option value="รายวัน">รายวัน</mat-option>
-          <mat-option value="รายเดือน">รายเดือน</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Employee_Detail</mat-label>
-        <mat-select  formControlName="Employee_Detail">
-          <mat-option ></mat-option>
-          <mat-option value="พนักงานใหม่">พนักงานใหม่</mat-option>
-          <mat-option value="พนักงานประจำ">พนักงานประจำ</mat-option>
-          <mat-option value="พนักงาน Sub">พนักงาน Sub</mat-option>
-        </mat-select>
-      </mat-form-field>
-      
-      </div>
+    </div>
+    
 
     <label for="Joined_date" class="form-label">วันที่เริ่มงาน(Joined date) 
       <input type="date" class="form-control" 

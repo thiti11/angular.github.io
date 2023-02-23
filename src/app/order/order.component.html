@@ -14,8 +14,10 @@
   <mat-toolbar >
     <span>Jcy</span>
     <span class="example-spacer"></span>
-        <strong>{{ currentUser.Firstname }}</strong>
-        <strong>{{ currentUser.Lastname }}</strong>
+    <strong>ชื่อผู้ใช้งาน :</strong>
+     <strong>{{ currentUser.Firstname }}</strong>  
+        
+
     <a mat-button [routerLink]="['/order']"> ออเดอร์การสั่งซื้อ</a>
     <a mat-button [routerLink]="['/orderequ']" > สั่งซื้ออุปกรณ์</a>
     <a mat-button  (click)="logout()"> Logout</a>

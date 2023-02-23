@@ -15,7 +15,10 @@ export class UpdateOrderComponent implements OnInit {
   currentUser: any;
   //currentOrder: any;
   item: any;
-  it:any;
+  No_ID:any;
+  itemmm:any;
+  itemmm1:any;
+  itemmm2:any;
   
  
    
@@ -26,6 +29,7 @@ export class UpdateOrderComponent implements OnInit {
     Remark:null,
     Hat:null
   }
+
   
 
   constructor(    private formBuilder:FormBuilder,
@@ -42,17 +46,42 @@ export class UpdateOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.StorageService.getUser();
-    
+   
+   
     this.Get_itemm() ;
    // this.Get_Updateorder();
   
+    this.Get_Orderid();
+ 
+
+   
   }
 
   logout(): void {
     this.StorageService.signOut();
     this.Route.navigate(['/login']);
   }
+  
+  Get_Orderid(){
+    this.No_ID = this.router.snapshot.params['No_ID'];
+    console.log(this.No_ID);
+    let data = {
+      mod: 'Get_thiti',  
+      Employee_ID:this.StorageService.getUser().Employee_ID,
+      No_ID : this.router.snapshot.params['No_ID'],
+      
+    };
+    this.ApiService.read(data).subscribe(resposne => {
+     // console.log(resposne);
+     this.itemmm = resposne[0]['List'];
+     this.itemmm1 = resposne[0]['Quantity'];
+     this.itemmm2= resposne[0]['Remark'];
+    // console.log(this.itemmm);
+        
+    });
+    
  
+  }
 
   Get_Updateorder(){
     console.log(this.formoorderequ.value)
@@ -68,7 +97,7 @@ export class UpdateOrderComponent implements OnInit {
     this.ApiService.read(data).subscribe(data =>{
       console.log(data);
     
-
+      this.Route.navigate(['/order']);
         
     });
     }
@@ -88,4 +117,5 @@ export class UpdateOrderComponent implements OnInit {
           
       });
     }
+
 }

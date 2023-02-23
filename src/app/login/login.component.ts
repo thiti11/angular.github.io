@@ -20,6 +20,8 @@ import { StorageService } from '../_services/storage.service';
 })
 export class LoginComponent implements OnInit {
   
+  hide = true;
+  
   loginForm : any = {
     Username: null,
     Password: null

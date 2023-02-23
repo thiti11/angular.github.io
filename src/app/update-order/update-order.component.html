@@ -68,33 +68,38 @@
        
         <table>
             <tr>
-            
-              <th>รายการ(List)</th>
+              <th>รายการ</th>
+              <th>เลือกสินค้า</th>
               <th>จำนวน/ชิ้น (Quantity)</th>
               <th>หมายเหตุ(Remark)</th>
               
 
             </tr>
+         
             <tr >
-
-              <td></td>
-              <td></td>
-              <td></td>                         
-            
-            </tr>
-            <tr >
-
               <td>
-                <input class="form-control" list="datalistOptions" id="exampleDataList" formControlName="list" placeholder="">
-                <datalist id="datalistOptions">
-                  <option *ngFor="let post of item" [value]="post.List">
-              </datalist> </td>
-              <td><input type="Value" class="form-control"  formControlName="Quantity"></td>
-              <td><input type="text" class="form-control" formControlName="Remark"></td>                         
+                <mat-card>
+                  <mat-card-content>รายการเดิม</mat-card-content>
+                </mat-card></td>
+              <td>
+                <mat-card>
+                  <mat-card-content>{{itemmm}}</mat-card-content>
+                </mat-card></td>
+                <td>
+                  <mat-card>
+                    <mat-card-content>{{itemmm1}} ชิ้น</mat-card-content>
+                  </mat-card></td>
+                  <td>
+                    <mat-card>
+                      <mat-card-content>{{itemmm2}}</mat-card-content>
+                    </mat-card></td>                       
             
             </tr>
             <tr >
-
+              <td>
+                <mat-card>
+                  <mat-card-content>รายการที่จะเปลี่ยนแปลง</mat-card-content>
+                </mat-card></td>
               <td>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" formControlName="list" placeholder="">
                 <datalist id="datalistOptions">

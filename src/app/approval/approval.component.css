@@ -1,14 +1,31 @@
 .example-spacer {
     
-    flex: 1 1 auto;
-  }
-  
-  .mat-toolbar {
-    background: #2bd48e;
-    color: #ffffff;
-    
-  }
-   
+  flex: 1 1 auto;
+}
 
-    
-    
+.mat-toolbar {
+  background: #2bd48e;
+  color: #ffffff;
+  
+}
+.mb-2 {
+  top: 30%;
+  left: 51%;
+  margin-top: 400px;
+  margin-left: 100px;
+  text-align: center;
+ 
+
+}
+.mat-elevation-z8 {
+  width: 30%;
+  position: absolute;
+  top: 20%; left: 30%;
+  
+
+}
+
+
+
+
+
