@@ -87,8 +87,8 @@ Get_itemorder(){
       console.log(data);
       
      
-     // this.dataSource.data.splice(No_ID,1);
-     // this.dataSource._updateChangeSubscription();
+      this.dataSource.data.splice(data,1);
+      this.dataSource._updateChangeSubscription(this.dataSource);
      
     });
 
