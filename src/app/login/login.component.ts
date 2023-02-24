@@ -1,16 +1,8 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../_services';
 import { ApiService } from '../api.sercice';
-import { Route, Router } from '@angular/router';
-import { first } from 'rxjs';
+import {  Router } from '@angular/router';
 import { StorageService } from '../_services/storage.service';
-
-
-
-
-
 
 
 @Component({
@@ -20,28 +12,18 @@ import { StorageService } from '../_services/storage.service';
 })
 export class LoginComponent implements OnInit {
   
-  hide = true;
-  
   loginForm : any = {
     Username: null,
     Password: null
   };
 
- 
 
- 
-  
   constructor(private formBuilder:FormBuilder,
-    private AuthenticationService:AuthenticationService,
     private router:Router,
     private ApiService:ApiService,
     private StorageService:StorageService,
      
-) { 
-  
-    
-    
-  }
+) {  }
     
 
   ngOnInit(): void {
@@ -79,13 +61,12 @@ export class LoginComponent implements OnInit {
                 
                 this.router.navigate(['/order']);
               }
-              //const redirect = this.dataService.redirectUrl ? this.dataService.redirectUrl :'/Order';
-            //   this.router.navigate(['/order']);
-              
-               //alert("Login Success");
+        
               
       }else{
-        alert ('Login Failed');
+       alert ('กรูณาตรวจสอบ Username and Password');
+      
+       
        
       
       }

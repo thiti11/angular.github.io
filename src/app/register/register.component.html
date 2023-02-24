@@ -1,47 +1,45 @@
-<body>  <mat-toolbar>
-    <span class="example-icon">  <img
-      width="60"
-      alt="Jcy"
-      src="https://sv1.picz.in.th/images/2022/12/21/JNQLLQ.jpg"
-    /></span>
-  </mat-toolbar>
+<body>   <mat-toolbar >
+  <span>Welfare Requestition</span>
+  <span class="example-spacer"></span>
+
+</mat-toolbar>
   <form class="mb-3" (ngSubmit)="Get_Register()" [formGroup]="formRegister">
-    <h1>Register</h1>
+    <h1>สมัครสมาชิก(Register)</h1>
     <div class="example-container">
   <p>
     <mat-form-field appearance="outline" >
-      <mat-label>Username</mat-label>
+      <mat-label>ชื่อผู้ใช้งาน(Usernam)</mat-label>
       <input matInput formControlName="Username" name="Username">
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
+      <mat-label>รหัสผ่าน(Password)</mat-label>
       <input type="Password" matInput formControlName="Password" name="Password">
     </mat-form-field>
   </p>
   <p>
     <mat-form-field appearance="outline">
-      <mat-label>Firstname</mat-label>
+      <mat-label>ชื่อจริง(Firstname)</mat-label>
       <input matInput formControlName="Firstname" name="Firstname">
     </mat-form-field>
     
     <mat-form-field appearance="outline">
-      <mat-label>Lastname</mat-label>
+      <mat-label>นามสกุล(Lastname)</mat-label>
       <input matInput formControlName="Lastname" name="Lastname">
     </mat-form-field>
   
   <p>
     <mat-form-field appearance="outline">
-      <mat-label>EmpNo</mat-label>
+      <mat-label>รหัสพนักงาน(EmpNo)</mat-label>
       <input matInput formControlName="EmpNo" name="EmpNo">
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Position</mat-label>
+      <mat-label>ตำแหน่งพนักงาน(Position)</mat-label>
       <input matInput formControlName="Position" name="Position">
     </mat-form-field>
   </p>
   <div>
     <mat-form-field appearance="fill">
-      <mat-label>Department</mat-label>
+      <mat-label>ฝ่าย(Department)</mat-label>
       <mat-select formControlName="Department" >
         <mat-option></mat-option>
         <mat-option value="Quality Assurance">Quality Assurance</mat-option>
@@ -56,7 +54,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Section</mat-label>
+      <mat-label>แผนก(Section)</mat-label>
       <mat-select formControlName="Section">
         <mat-option></mat-option>
         <mat-option value="รายเดือน">IPQA/B</mat-option>
@@ -122,7 +120,7 @@
     </div>
     <div>
     <mat-form-field appearance="fill">
-      <mat-label>Type_of_Employee</mat-label>
+      <mat-label>ประเภทพนักงาน(Type_of_Employee)</mat-label>
       <mat-select formControlName="Type_of_Employee">
         <mat-option ></mat-option>
         <mat-option value="รายวัน">รายวัน</mat-option>
@@ -130,7 +128,7 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Employee_Detail</mat-label>
+      <mat-label>รายละเอียดพนักงาน(Employee_Detail)</mat-label>
       <mat-select  formControlName="Employee_Detail">
         <mat-option ></mat-option>
         <mat-option value="พนักงานใหม่">พนักงานใหม่</mat-option>
@@ -142,10 +140,14 @@
     </div>
     
 
-    <label for="Joined_date" class="form-label">วันที่เริ่มงาน(Joined date) 
-      <input type="date" class="form-control" 
-      formControlName="Joined_date" ></label>
-
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>วันที่เริ่มงาน(๋joined date)</mat-label>
+      <input matInput  type="date" class="form-control" 
+      formControlName="Joined_date">
+      
+     
+       
+    </mat-form-field>
   
 </div>
 

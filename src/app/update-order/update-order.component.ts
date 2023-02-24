@@ -27,7 +27,7 @@ export class UpdateOrderComponent implements OnInit {
     list:null,
     Quantity:null,
     Remark:null,
-    Hat:null
+    Request_By:null
   }
 
   
@@ -41,7 +41,7 @@ export class UpdateOrderComponent implements OnInit {
         list: ['', Validators.required],
         Quantity: ['', Validators.required],
         Remark: ['', Validators.required],
-        Hat: ['', Validators.required]
+        Request_By: ['', Validators.required]
     }); }
 
   ngOnInit(): void {
@@ -66,7 +66,7 @@ export class UpdateOrderComponent implements OnInit {
     this.No_ID = this.router.snapshot.params['No_ID'];
     console.log(this.No_ID);
     let data = {
-      mod: 'Get_thiti',  
+      mod: 'Get_Orderid',  
       Employee_ID:this.StorageService.getUser().Employee_ID,
       No_ID : this.router.snapshot.params['No_ID'],
       
@@ -92,16 +92,23 @@ export class UpdateOrderComponent implements OnInit {
       list: this.formoorderequ.value.list,
       Quantity: this.formoorderequ.value.Quantity,
       Remark: this.formoorderequ.value.Remark,
-      Hat: this.formoorderequ.value.Hat,
+      Request_By: this.formoorderequ.value.Request_By,
     };
+    if(this.formoorderequ.valid){
     this.ApiService.read(data).subscribe(data =>{
       console.log(data);
     
+     
       this.Route.navigate(['/order']);
+    
+   
         
     });
-    }
+    }else{
+        alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
 
+    }
+  }
  
     Get_itemm(){
  

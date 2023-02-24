@@ -2,66 +2,78 @@
 <html lang="en">
 <body>
     <mat-toolbar >
-      <span>Jcy</span>
+      <span>Welfare Requestition</span>
       <span class="example-spacer"></span>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
+      <strong>Admin :</strong>
           <strong>{{ currentUser.Firstname }}</strong>
-          <strong>{{ currentUser.Lastname }}</strong>
-          <a mat-button  (click)="admin()"> Admin</a>
-      <a mat-button  (click)="logout()"> Logout</a>
+          
+          <a mat-button  (click)="admin()"> ออเดอร์การสั่งซื้อ(Ordering)</a>
+      <a mat-button  (click)="logout()"> ออกจากระบบ(Logout)</a>
     </mat-toolbar>
-    <form    [formGroup]="formapproval"   >
-    
+    <form    [formGroup]="formapproval"  (ngSubmit)="Get_By()"  >
       <div class="mat-elevation-z8">
+        <h1>
+          ออเดอร์การสั่งซื้อ(Ordering)
+         </h1>
         <table  class="mp-table" mat-table [dataSource]="dataSource">
       
        
 
+        
+
              <!-- Name Column -->
              <ng-container matColumnDef="Name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <th mat-header-cell *matHeaderCellDef> ชื่อ(Name) </th>
                 <td mat-cell *matCellDef="let element"> {{element.Firstname}} </td>
               </ng-container>
       
           <!-- Name Column -->
           <ng-container matColumnDef="List">
-            <th mat-header-cell *matHeaderCellDef> List </th>
+            <th mat-header-cell *matHeaderCellDef> รายการ(List) </th>
             <td mat-cell *matCellDef="let element"> {{element.List}} </td>
           </ng-container>
       
           <!-- Weight Column -->
           <ng-container matColumnDef="Quantity">
-            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <th mat-header-cell *matHeaderCellDef> จำนวน/ชิ้น(Quantity) </th>
             <td mat-cell *matCellDef="let element"> {{element.Quantity}} </td>
           </ng-container>
       
           <!-- Symbol Column -->
           <ng-container matColumnDef="Remark">
-            <th mat-header-cell *matHeaderCellDef> Remark </th>
+            <th mat-header-cell *matHeaderCellDef> หมายเหตุ(Remark) </th>
             <td mat-cell *matCellDef="let element"> {{element.Remark}} </td>
           </ng-container>
 
-         
-      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Request_By">
+            <th mat-header-cell *matHeaderCellDef> ผู้สั่งซื้อ(Request_By)  </th>
+            <td mat-cell *matCellDef="let element"> {{element.Request_By }} </td>
+          </ng-container>
+
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
   
       </div>
       <div class="mb-2" >
+
     <p>
         <mat-form-field appearance="outline">
-            <mat-label>Approved By</mat-label>
-            <input matInput >
+            <mat-label>ผู้อนุมัติ(Approved By)</mat-label>
+            <input matInput formControlName="Approved_By">
             
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Issued By</mat-label>
-            <input matInput >
+            <mat-label>ผู้ส่งมอบ(Issued By)</mat-label>
+            <input matInput formControlName="Issued_By" >
     
           </mat-form-field>
         </p>
         <div class="button1">
-            <button  type="submit" class="btn btn-success" >ยืนยัน (Confirm)</button>
+            <button  type="submit" mat-raised-button >ยืนยัน (Confirm)</button>
+            <button [routerLink]="['/Admin']" type="submit" mat-raised-button >ยืนยัน (Confirm)</button>
             
           </div>
         </div>

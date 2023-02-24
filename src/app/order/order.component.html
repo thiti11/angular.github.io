@@ -11,60 +11,64 @@
 
 </head>
 <body>
+  
   <mat-toolbar >
-    <span>Jcy</span>
+    <span>Welfare Requestition</span>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
     <span class="example-spacer"></span>
-    <strong>ชื่อผู้ใช้งาน :</strong>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
+    <strong>User :</strong>
      <strong>{{ currentUser.Firstname }}</strong>  
         
 
-    <a mat-button [routerLink]="['/order']"> ออเดอร์การสั่งซื้อ</a>
-    <a mat-button [routerLink]="['/orderequ']" > สั่งซื้ออุปกรณ์</a>
-    <a mat-button  (click)="logout()"> Logout</a>
+    
+    <a mat-button [routerLink]="['/orderequ']" > สั่งซื้ออุปกรณ์(Order Equipment)</a>
+    <a mat-button  (click)="logout()"> ออกจากระบบ(Logout)</a>
   </mat-toolbar>
 
     <form  >
       <div class="mp-table">
-       <h1>
-        ออเดอร์การสั่งซื้อ(Ordering)
-       </h1>
+    
        <div class="mat-elevation-z10">
+        <h1>
+          ออเดอร์การสั่งซื้อ(Ordering)
+         </h1>
        <table mat-table [dataSource]="dataSource" >
 
           <!-- Position Column -->
         <ng-container matColumnDef="no">
-          <th mat-header-cell *matHeaderCellDef> No </th>
+          <th mat-header-cell *matHeaderCellDef> ลำดับ(No) </th>
           <td mat-cell *matCellDef="let element; let i = index"> {{no+(i)}} </td>
         </ng-container>
       
         <!-- Position Column -->
         <ng-container matColumnDef="List">
-          <th mat-header-cell *matHeaderCellDef> List </th>
+          <th mat-header-cell *matHeaderCellDef> รายการ(List) </th>
           <td mat-cell *matCellDef="let element"> {{element.List}} </td>
         </ng-container>
       
 
         <!-- Weight Column -->
         <ng-container matColumnDef="Quantity">
-          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <th mat-header-cell *matHeaderCellDef> จำนวน/ชิ้น(Quantity) </th>
           <td mat-cell *matCellDef="let element"> {{element.Quantity}} </td>
         </ng-container>
       
         <!-- Symbol Column -->
         <ng-container matColumnDef="Remark">
-          <th mat-header-cell *matHeaderCellDef> Remark </th>
+          <th mat-header-cell *matHeaderCellDef> หมายเหตุ(Remark) </th>
           <td mat-cell *matCellDef="let element"> {{element.Remark}} </td>
         </ng-container>
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef> Update </th>
+          <th mat-header-cell *matHeaderCellDef> แก้ไขรายการสินค้า(Edit) </th>
           <td mat-cell *matCellDef="let element"> 
-          <a (click)="Updateorder(element.No_ID)" mat-raised-button  color="warn" >Update</a>
+          <a (click)="Updateorder(element.No_ID)" mat-raised-button  color="warn" >แก้ไขสินค้า(Edit)</a>
         </ng-container>
         <ng-container matColumnDef="action1">
-          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <th mat-header-cell *matHeaderCellDef> ลบรายการสินค้า(Delete) </th>
           <td mat-cell *matCellDef="let element"> 
             <a  (click)="Deleteorder(element.No_ID)" mat-raised-button  color="warn"
-            > Delete</a> </td>
+            > ลบรายการสินค้า(Delete)</a> </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.sercice';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-approval',
@@ -27,6 +28,7 @@ export class ApprovalComponent implements OnInit {
      private StorageService: StorageService,
       private ApiService:ApiService,
       private Router:Router,
+      private toastr:ToastrService,
       private router:ActivatedRoute) { 
        this.formapproval = this.formBuilder.group({
         Issued_By: ['', Validators.required],
@@ -36,13 +38,13 @@ export class ApprovalComponent implements OnInit {
         
     }); }
 
-    displayedColumns: string[] = ['Name','List',  'Quantity', 'Remark'];
+    displayedColumns: string[] = ['Name','List',  'Quantity', 'Remark','Request_By'];
    
 
   ngOnInit(): void {
-  //  this.Get_approval();
+
     this.currentUser = this.StorageService.getUser();
-    this.Get_Orderid();
+    this.Get_approval();
   }
 
 
@@ -56,29 +58,41 @@ export class ApprovalComponent implements OnInit {
         this.Router.navigate(['/login']);
       }
 
-  /*  Get_approval(){
-      // console.log(this.formapproval.value);
+    Get_By(){
+       console.log(this.formapproval.value);
       let data = {
-        mod: 'Get_approval', 
+        mod: 'Get_By', 
         data:this.router.snapshot.params['No_ID'],
         
         Issued_By: this.formapproval.value.Issued_By,
         Approved_By: this.formapproval.value.Approved_By,
 
       };
+    
+    if(this.formapproval.valid){
       this.ApiService.read(data).subscribe(data =>{
         console.log(data);
       
-
+       
+        this.Router.navigate(['/Admin']);
+      
+     
           
       });
-      
+      }else{
+         // alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+          this.toastr.success('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+  
+      }
     }
-    */
-    Get_Orderid(){
+    
+    Get_approval(){
+      this.No_ID = this.router.snapshot.params['No_ID'];
+      console.log(this.No_ID);
       let data = {
-        mod: 'Get_orderadmin',  
-       // Employee_ID:this.StorageService.getUser().Employee_ID,
+        mod: 'Get_approval',  
+        No_ID : this.router.snapshot.params['No_ID'],
+       
         
       };
       this.ApiService.read(data).subscribe(resposne => {

@@ -1,31 +1,31 @@
 <body>  
   <mat-toolbar >
-    <span>Jcy</span>
+    <span>Welfare Requestition</span>
     <span class="example-spacer"></span>
 
   </mat-toolbar>
 <form class="mb-3"     [formGroup]="loginForm"    (ngSubmit)=" Get_login()"  >
-  <h1>Login</h1>
+  <h1>เข้าสู่ระบบ(Login)</h1>
 <p>
   <mat-form-field appearance="outline" >
-    <mat-label for="Username">Username</mat-label>
-    <input matInput type="text" class="form-control" formControlName="Username" name="Username"    >
+    <mat-label for="Username">ชื่อผู้ใช้งาน(Username)</mat-label>
+    <input matInput type="text" class="form-control" formControlName="Username" name="Username"   required   >
  
   </mat-form-field>
 </p>
 <p>
   
   <mat-form-field appearance="outline">
-    <mat-label for="Password">Password</mat-label>
-    <input matInput type="Password" class="form-control" formControlName="Password" name="Password"   >
+    <mat-label for="Password">รหัสผ่าน(Password)</mat-label>
+    <input matInput type="Password" class="form-control" formControlName="Password" name="Password"  required   >
   </mat-form-field>
 </p>
 <section>
   
   <div class="example-button-row">
-    <button type="submit" mat-raised-button >Login</button>
+    <button type="submit" mat-raised-button >เข้าสู่ระบบ(Login)</button>
 
-    <button [routerLink]="['/register']"  mat-raised-button>Register</button>
+    <button [routerLink]="['/register']"  mat-raised-button>สมัครสมาชิก(Register)</button>
   </div>
   
 </section>

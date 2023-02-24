@@ -85,15 +85,25 @@ export class RegisterComponent implements OnInit {
     Employee_Detail: this.formRegister.value. Employee_Detail, 
     Joined_date: this.formRegister.value.Joined_date, 
   };
-  this.ApiService.read(data).subscribe(data=> {
-    console.log(data);
-    this.router.navigate(['login']);
+  if(this.formRegister.valid){
+    this.ApiService.read(data).subscribe(data =>{
+      console.log(data);
     
-      
-  });
+     
+      this.router.navigate(['login']);
+    
+   
+        
+    });
+    }else{
+        alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+
+    }
+  }
+  
   
  
-  }
+  
   
 
 }

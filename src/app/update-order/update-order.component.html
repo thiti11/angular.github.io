@@ -12,13 +12,15 @@
 </head>
 <body>
  <mat-toolbar >
-    <span>Jcy</span>
+    <span>Welfare Requestition</span>
     <span class="example-spacer"></span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
+    <strong>User :</strong>
         <strong>{{ currentUser.Firstname }}</strong>
-        <strong>{{ currentUser.Lastname }}</strong>
-    <a mat-button [routerLink]="['/order']"> ออเดอร์การสั่งซื้อ</a>
-    <a mat-button [routerLink]="['/orderequ']"> สั่งซื้ออุปกรณ์</a>
-    <a mat-button (click)="logout()"> Logout</a>
+     
+    <a mat-button [routerLink]="['/order']"> ออเดอร์การสั่งซื้อ (Ordering)</a>
+    <a mat-button [routerLink]="['/orderequ']"> สั่งซื้ออุปกรณ์(Order Equipment)</a>
+    <a mat-button (click)="logout()">ออกจากระบบ(Logout)</a>
   </mat-toolbar>
 
 
@@ -68,8 +70,8 @@
        
         <table>
             <tr>
-              <th>รายการ</th>
-              <th>เลือกสินค้า</th>
+              <th>รายการ(List)</th>
+              <th>เลือกสินค้า(Select Products)</th>
               <th>จำนวน/ชิ้น (Quantity)</th>
               <th>หมายเหตุ(Remark)</th>
               
@@ -79,7 +81,7 @@
             <tr >
               <td>
                 <mat-card>
-                  <mat-card-content>รายการเดิม</mat-card-content>
+                  <mat-card-content>รายการเก่า(Old List)</mat-card-content>
                 </mat-card></td>
               <td>
                 <mat-card>
@@ -98,35 +100,35 @@
             <tr >
               <td>
                 <mat-card>
-                  <mat-card-content>รายการที่จะเปลี่ยนแปลง</mat-card-content>
+                  <mat-card-content>รายการใหม่(์New List)</mat-card-content>
                 </mat-card></td>
               <td>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" formControlName="list" placeholder="">
                 <datalist id="datalistOptions">
                   <option *ngFor="let post of item" [value]="post.List">
               </datalist> </td>
-              <td><input type="Value" class="form-control"  formControlName="Quantity"></td>
+              <td><input type="Value" class="form-control"  formControlName="Quantity" ></td>
               <td><input type="text" class="form-control" formControlName="Remark"></td>                         
             
             </tr>
             </table>
             <p>
               <mat-form-field appearance="outline">
-                <mat-label>Request By(ผู้ข้อ)</mat-label>
-                <input matInput placeholder="">
+                <mat-label>ผู้สั่งซื้อ(Request By)</mat-label>
+                <input matInput   formControlName="Request_By">
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>Approved By(ผู้อนุมัติ)</mat-label>
-                <input matInput placeholder="">
+                <mat-label>ผู้อนุมัติ(Approved By)</mat-label>
+                <input matInput  [disabled]="true">
               </mat-form-field>
               <mat-form-field appearance="outline">
-                <mat-label>Issued By(ผู้ส่งมอบ)</mat-label>
-                <input matInput placeholder="">
+                <mat-label>ผู้ส่งมอบ(Issued By)</mat-label>
+                <input matInput  [disabled]="true">
               </mat-form-field>
             </p>
           <div class="button">
-            <button  type="submit" class="btn btn-success" >ยืนยัน (Confirm)</button>
-            <button [routerLink]="['/order']" type="submit" class="btn btn-success"color="green" >ยกเลิก (Cancel)</button>
+            <button  type="submit" mat-raised-button >ยืนยัน (Confirm)</button>
+            <button [routerLink]="['/order']" type="submit" mat-raised-button>ยกเลิก (Cancel)</button>
           </div>
         </form>
         </div>

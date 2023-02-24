@@ -11,21 +11,30 @@
 .mb-2 {
   top: 30%;
   left: 51%;
-  margin-top: 400px;
+  margin-top: 300px;
   margin-left: 100px;
   text-align: center;
  
 
 }
-.mat-elevation-z8 {
-  width: 30%;
+.mat-elevation-z8 ,.table {
+  width: 50%;
   position: absolute;
   top: 20%; left: 30%;
   
 
 }
+table {
+  
+  width: 100%;
+ 
+  top: 50%;
+  left: 30%;
+}
 
-
-
+h1 {
+  text-align: center;
+  transform: translate(0%,40%);
+  }
 
 

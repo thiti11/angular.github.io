@@ -61,16 +61,23 @@ export class OrderEquComponent implements OnInit {
         Firstname: this.currentUser = this.StorageService.getUser().Firstname, 
 
       };
-      this.ApiService.read(data).subscribe(data =>{
-        console.log(data);
-        this.Router.navigate(['/order']);
-       // this.item = resposne
-      //  this.Detall= resposne[4]['Detall'];
-
-      });
-  
-    }
+      if(this.formoorderequ.valid){
+        this.ApiService.read(data).subscribe(data =>{
+          console.log(data);
+        
+         
+          this.Router.navigate(['/order']);
+        
+       
+            
+        });
+        }else{
+            alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
     
+        }
+      }
+
+      
     Get_itemm(){
  
       let data = {
