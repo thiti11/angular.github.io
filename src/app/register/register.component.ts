@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 import { ApiService } from '../api.sercice';
@@ -42,6 +43,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router:Router,
     private ApiService:ApiService , 
+    private toastr:ToastrService,
 
     ) {  this.formRegister = this.formBuilder.group({
       Username:['', Validators.required],
@@ -89,14 +91,15 @@ export class RegisterComponent implements OnInit {
     this.ApiService.read(data).subscribe(data =>{
       console.log(data);
     
-     
+      this.toastr.info('สมัครสมาชิกสำเร็จ');
       this.router.navigate(['login']);
     
    
         
     });
     }else{
-        alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+      //  alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+        this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
 
     }
   }

@@ -73,7 +73,7 @@ export class ApprovalComponent implements OnInit {
       this.ApiService.read(data).subscribe(data =>{
         console.log(data);
       
-       
+        this.toastr.info('ยืนยันรายการสำเร็จ');
         this.Router.navigate(['/Admin']);
       
      
@@ -81,7 +81,7 @@ export class ApprovalComponent implements OnInit {
       });
       }else{
          // alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
-          this.toastr.success('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+          this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
   
       }
     }

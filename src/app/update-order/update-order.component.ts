@@ -3,6 +3,7 @@ import { StorageService } from '../_services/storage.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.sercice';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -36,6 +37,7 @@ export class UpdateOrderComponent implements OnInit {
     private  StorageService: StorageService,
     private ApiService:ApiService,
     private Route:Router,
+    private toastr:ToastrService,
     private router:ActivatedRoute) { 
       this.formoorderequ = this.formBuilder.group({
         list: ['', Validators.required],
@@ -98,14 +100,15 @@ export class UpdateOrderComponent implements OnInit {
     this.ApiService.read(data).subscribe(data =>{
       console.log(data);
     
-     
+      this.toastr.info('แก้ไขรายการสำเร็จ');
       this.Route.navigate(['/order']);
     
    
         
     });
     }else{
-        alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+       // alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+        this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
 
     }
   }

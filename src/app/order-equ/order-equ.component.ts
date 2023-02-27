@@ -3,6 +3,7 @@ import { StorageService } from '../_services/storage.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.sercice';
 import {  Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-order-equ',
@@ -25,6 +26,7 @@ export class OrderEquComponent implements OnInit {
     private formBuilder:FormBuilder,
     private  StorageService: StorageService,
     private Router:Router,
+    private toastr:ToastrService,
     private ApiService:ApiService) { 
       this.formoorderequ = this.formBuilder.group({
         list: ['', Validators.required],
@@ -65,14 +67,15 @@ export class OrderEquComponent implements OnInit {
         this.ApiService.read(data).subscribe(data =>{
           console.log(data);
         
-         
+          this.toastr.info('ทำการสั่งซื้อสำเร็จ');
           this.Router.navigate(['/order']);
         
        
             
         });
         }else{
-            alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+           // alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+            this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
     
         }
       }

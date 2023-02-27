@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.sercice';
 import {  Router } from '@angular/router';
 import { StorageService } from '../_services/storage.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     private router:Router,
     private ApiService:ApiService,
     private StorageService:StorageService,
+    private toastr:ToastrService,
      
 ) {  }
     
@@ -55,17 +57,18 @@ export class LoginComponent implements OnInit {
               //this.StorageService.saveToken(data.accessToken);
               this.StorageService.saveUser(data);
               if(data.Role=="Admin"){
+                this.toastr.info('Admin เข้าสู่ระบบสำเร็จ');
                 this.router.navigate(['/Admin']);
               }else{
                // console.log("failed")
-                
+               this.toastr.info('User เข้าสู่ระบบสำเร็จ');
                 this.router.navigate(['/order']);
               }
         
               
       }else{
-       alert ('กรูณาตรวจสอบ Username and Password');
-      
+       //alert ('กรูณาตรวจสอบ Username and Password');
+       this.toastr.error('กรูณาตรวจสอบ Username and Password');
        
        
       

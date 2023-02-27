@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -32,6 +33,7 @@ constructor(
   private ApiService: ApiService,
   private StorageService: StorageService,
   private Router:Router,
+  private toastr:ToastrService,
  
   ) {
  
@@ -89,6 +91,8 @@ Get_itemorder(){
      
       this.dataSource.data.splice(data,1);
       this.dataSource._updateChangeSubscription(this.dataSource);
+      this.toastr.info('ลบรายการสำเร็จ');
+    
      
     });
 
