@@ -63,7 +63,7 @@ export class OrderEquComponent implements OnInit {
         Firstname: this.currentUser = this.StorageService.getUser().Firstname, 
 
       };
-      if(this.formoorderequ.valid){
+      //if(this.formoorderequ.valid){
         this.ApiService.read(data).subscribe(data =>{
           console.log(data);
         
@@ -73,11 +73,11 @@ export class OrderEquComponent implements OnInit {
        
             
         });
-        }else{
-           // alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
-            this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+       // }else{
+      //      alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+           // this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
     
-        }
+       // }
       }
 
       
