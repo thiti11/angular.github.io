@@ -37,7 +37,7 @@
 
           <!-- Position Column -->
         <ng-container matColumnDef="no">
-          <th mat-header-cell *matHeaderCellDef> ลำดับ(No) </th>
+          <th mat-header-cell *matHeaderCellDef> No</th>
           <td mat-cell *matCellDef="let element; let i = index"> {{no+(i)}} </td>
         </ng-container>
       
@@ -59,16 +59,24 @@
           <th mat-header-cell *matHeaderCellDef> หมายเหตุ(Remark) </th>
           <td mat-cell *matCellDef="let element"> {{element.Remark}} </td>
         </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> สถานะการสั่งซื้อ(status) </th>
+          <td mat-cell *matCellDef="let element"> {{element.Approved_By }} </td>
+        </ng-container>
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> แก้ไขรายการสินค้า(Edit) </th>
           <td mat-cell *matCellDef="let element"> 
-          <a (click)="Updateorder(element.No_ID)" mat-raised-button  color="warn" >แก้ไขสินค้า(Edit)</a>
+            <mat-icon (click)="Updateorder(element.No_ID,element.Approved_By)"  mat-raised-button class="example-icon"  color="primary" 
+            aria-hidden="false" aria-label="Example user verified icon">edit_square</mat-icon>
+          
         </ng-container>
         <ng-container matColumnDef="action1">
           <th mat-header-cell *matHeaderCellDef> ลบรายการสินค้า(Delete) </th>
           <td mat-cell *matCellDef="let element"> 
-            <a  (click)="Deleteorder(element.No_ID)" mat-raised-button  color="warn"
-            > ลบรายการสินค้า(Delete)</a> </td>
+            <mat-icon (click)="Deleteorder(element.No_ID)" mat-raised-button class="example-icon"  color="warn" 
+            aria-hidden="false" aria-label="Example user verified icon">delete_forever</mat-icon>
+         
+           </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

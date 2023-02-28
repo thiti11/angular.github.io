@@ -19,11 +19,13 @@ export class OrderComponent implements OnInit {
   List: any;
   dataSource:any;
   no=0;
+  
+
 
 
  
 
-  displayedColumns: string[] = ['no','List',  'Quantity', 'Remark','action','action1'];
+  displayedColumns: string[] = ['no','List',  'Quantity', 'Remark','status','action','action1'];
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -42,8 +44,7 @@ constructor(
 ngOnInit(): void{
   this.Get_itemorder();
   this.currentUser = this.StorageService.getUser();
- 
- 
+
 }
 
  logout(): void {
@@ -60,20 +61,27 @@ Get_itemorder(){
   };
   this.ApiService.read(data).subscribe(resposne => {
    // console.log(resposne);
-   
+ 
    this.List = resposne;
    this.dataSource = new MatTableDataSource(this.List);   
    this.dataSource.paginator = this.paginator; 
-      
+ 
+
   });
 
   }
 
-  Updateorder(No_ID:number){
-    console.log(No_ID);
-    
-    this.Router.navigate(['/updateorder',No_ID]);
-}
+  Updateorder(No_ID:number,Approved_By:string){
+    console.log(No_ID,Approved_By);
+    if(Approved_By !=''){
+      
+      this.toastr.info('อนุมัติแล้ว ไม่สามารถแก้ไขได้');
+    }
+    else{
+      this.Router.navigate(['/updateorder',No_ID]);
+    }
+      
+  }
 
   Deleteorder(No_ID:number){
   console.log(No_ID);
