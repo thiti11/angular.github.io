@@ -96,7 +96,7 @@ export class UpdateOrderComponent implements OnInit {
       Remark: this.formoorderequ.value.Remark,
       Request_By: this.formoorderequ.value.Request_By,
     };
-    if(this.formoorderequ.valid){
+   // if(this.formoorderequ.valid){
     this.ApiService.read(data).subscribe(data =>{
       console.log(data);
     
@@ -106,11 +106,11 @@ export class UpdateOrderComponent implements OnInit {
    
         
     });
-    }else{
+    //}else{
        // alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
-        this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+   //     this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
 
-    }
+   // }
   }
  
     Get_itemm(){
