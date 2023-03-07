@@ -106,11 +106,7 @@ export class UpdateOrderComponent implements OnInit {
    
         
     });
-    //}else{
-       // alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
-   //     this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
-
-   // }
+  
   }
  
     Get_itemm(){

@@ -4,6 +4,7 @@ import { ApiService } from '../api.sercice';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -16,7 +17,10 @@ export class AdminComponent implements OnInit {
   no=0;
   List: any;
 
-  constructor(  private StorageService: StorageService, private ApiService:ApiService,private Router:Router,) { }
+  constructor(  private StorageService: StorageService, 
+    private ApiService:ApiService,
+    private Router:Router,
+    private toastr:ToastrService,) { }
  
 
 
@@ -56,9 +60,17 @@ Get_orderadmin(){
   
     }
 
-    sign_approval(No_ID:number){
-      console.log(No_ID);
-      this.Router.navigate(['/approval',No_ID]);
+    sign_approval(No_ID:number,Approved_By:string,Issued_By:string){
+      console.log(No_ID,Approved_By,Issued_By);
+      if(Approved_By !=''){
+      
+        this.toastr.info('ออเดอร์นี้ได้ อนุมัติเรียบร้อยแล้ว');
+      }
+      else{
+        this.Router.navigate(['/approval',No_ID]);
+      }
+        
+     // this.Router.navigate(['/approval',No_ID]);
     }
     
 }
