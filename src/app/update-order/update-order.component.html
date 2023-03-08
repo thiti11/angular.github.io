@@ -12,14 +12,12 @@
 </head>
 <body>
  <mat-toolbar >
-    <span>Welfare Requestition</span>
+    <span>Welfare Requestition Form</span>
     <span class="example-spacer"></span>
     <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
     <strong>User :</strong>
         <strong>{{ currentUser.Firstname }}</strong>
-     
-    <a mat-button [routerLink]="['/order']"> ออเดอร์การสั่งซื้อ (Ordering)</a>
-    <a mat-button [routerLink]="['/orderequ']"> สั่งซื้ออุปกรณ์(Order Equipment)</a>
+
     <a mat-button (click)="logout()">ออกจากระบบ(Logout)</a>
   </mat-toolbar>
 

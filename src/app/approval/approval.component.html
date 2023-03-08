@@ -2,19 +2,19 @@
 <html lang="en">
 <body>
     <mat-toolbar >
-      <span>Welfare Requestition</span>
+      <span>Welfare Requestition Form</span>
       <span class="example-spacer"></span>
       <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
       <strong>Admin :</strong>
           <strong>{{ currentUser.Firstname }}</strong>
           
-          <a mat-button  (click)="admin()"> ออเดอร์การสั่งซื้อ(Ordering)</a>
+        
       <a mat-button  (click)="logout()"> ออกจากระบบ(Logout)</a>
     </mat-toolbar>
     <form    [formGroup]="formapproval"  (ngSubmit)="Get_By()"  >
       <div class="mat-elevation-z8">
         <h1>
-          ออเดอร์การสั่งซื้อ(Ordering)
+          รายการขอรับอุปกรณ์(Equipment Request List)
          </h1>
         <table  class="mp-table" mat-table [dataSource]="dataSource">
       
