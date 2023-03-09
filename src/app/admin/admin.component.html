@@ -2,7 +2,7 @@
 <html lang="en">
 <body>
     <mat-toolbar >
-      <span>Welfare Requestition Form</span>
+      <span>Obtain Employee Uniforms</span>
       <span class="example-spacer"></span>
       <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
       <strong>Admin :</strong>
@@ -48,9 +48,15 @@
               </ng-container>
 
               <ng-container matColumnDef="approval">
-                <th mat-header-cell *matHeaderCellDef> ลงชื่อ(sing) </th>
+                <th mat-header-cell *matHeaderCellDef> Approved_By </th>
                 <td mat-cell *matCellDef="let element"> 
-                <a (click)="sign_approval(element.No_ID,element.Approved_By,element.Issued_By)" mat-raised-button  color="warn" >ลงชื่อ(sing)</a>
+                <a (click)="sign_approval(element.No_ID,element.Approved_By)" mat-raised-button  color="warn" >ลงชื่อ</a>
+              </ng-container>
+
+              <ng-container matColumnDef="Issued">
+                <th mat-header-cell *matHeaderCellDef> Issued_By </th>
+                <td mat-cell *matCellDef="let element"> 
+                <a (click)=" sign_Issued(element.No_ID,element.Issued_By,element.Approved_By)" mat-raised-button  color="primary" >ลงชื่อ</a>
               </ng-container>
           
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

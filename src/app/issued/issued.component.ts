@@ -5,13 +5,12 @@ import { ApiService } from '../api.sercice';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
-
 @Component({
-  selector: 'app-approval',
-  templateUrl: './approval.component.html',
-  styleUrls: ['./approval.component.css']
+  selector: 'app-issued',
+  templateUrl: './issued.component.html',
+  styleUrls: ['./issued.component.css']
 })
-export class ApprovalComponent implements OnInit {
+export class IssuedComponent implements OnInit {
   currentUser: any;
   No_ID:any;
   dataSource:any;
@@ -19,8 +18,8 @@ export class ApprovalComponent implements OnInit {
 
     
   formapproval: any ={
-    Approved_By:null,
 
+    Issued_By:null,
   
   }
 
@@ -31,8 +30,8 @@ export class ApprovalComponent implements OnInit {
       private toastr:ToastrService,
       private router:ActivatedRoute) { 
        this.formapproval = this.formBuilder.group({
- 
-        Approved_By: ['', Validators.required],
+        Issued_By: ['', Validators.required],
+     
        
         
         
@@ -61,10 +60,11 @@ export class ApprovalComponent implements OnInit {
     Get_By(){
        console.log(this.formapproval.value);
       let data = {
-        mod: 'Get_By', 
+        mod: 'Get_issued', 
         data:this.router.snapshot.params['No_ID'],
         
-        Approved_By: this.formapproval.value.Approved_By,
+        Issued_By: this.formapproval.value.Issued_By,
+       
 
       };
     

@@ -25,6 +25,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ApprovalComponent } from './approval/approval.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { IssuedComponent } from './issued/issued.component';
 
 
 
@@ -42,6 +43,7 @@ import { MatIconModule } from '@angular/material/icon';
     UpdateOrderComponent,
     AdminComponent,
     ApprovalComponent,
+    IssuedComponent,
 
  
   

@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OrderEquComponent implements OnInit {
   currentUser: any;
+  currentUser1: any;
   item: any
   
   formoorderequ: any ={
@@ -40,6 +41,7 @@ export class OrderEquComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.StorageService.getUser();
+    this.currentUser1 = this.StorageService.getUser();
     this.Get_itemm() ;
    
   }
@@ -63,21 +65,22 @@ export class OrderEquComponent implements OnInit {
         Firstname: this.currentUser = this.StorageService.getUser().Firstname, 
 
       };
-      //if(this.formoorderequ.valid){
+      if(this.formoorderequ.valid){
         this.ApiService.read(data).subscribe(data =>{
           console.log(data);
-        
+     
           this.toastr.info('ทำการสั่งซื้อสำเร็จ');
           this.Router.navigate(['/order']);
         
        
             
         });
-       // }else{
+       }else{
+      
       //      alert('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
-           // this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
+            this.toastr.error('กรุณากรอกข้อมูลให้เรียบร้อยด้วยครับ');
     
-       // }
+       }
       }
 
       

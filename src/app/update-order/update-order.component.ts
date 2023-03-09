@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ApiService } from '../api.sercice';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { elementAt } from 'rxjs';
 
 
 
@@ -49,7 +50,7 @@ export class UpdateOrderComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.StorageService.getUser();
    
-   
+    
     this.Get_itemm() ;
    // this.Get_Updateorder();
   
@@ -67,6 +68,7 @@ export class UpdateOrderComponent implements OnInit {
   Get_Orderid(){
     this.No_ID = this.router.snapshot.params['No_ID'];
     console.log(this.No_ID);
+    
     let data = {
       mod: 'Get_Orderid',  
       Employee_ID:this.StorageService.getUser().Employee_ID,
@@ -96,16 +98,21 @@ export class UpdateOrderComponent implements OnInit {
       Remark: this.formoorderequ.value.Remark,
       Request_By: this.formoorderequ.value.Request_By,
     };
-   // if(this.formoorderequ.valid){
+   if(this.formoorderequ.valid){
     this.ApiService.read(data).subscribe(data =>{
       console.log(data);
-    
+   
       this.toastr.info('แก้ไขรายการสำเร็จ');
       this.Route.navigate(['/order']);
+   
     
    
         
     });
+  }else{
+  //  console.log(this.currentUser);
+    this.toastr.error('แก้ไขรายการไม่สำเร็จ');
+  }
   
   }
  

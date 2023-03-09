@@ -98,7 +98,7 @@ Get_itemorder(){
       
      
       this.dataSource.data.splice(data,1);
-      this.dataSource._updateChangeSubscription(this.dataSource);
+      this.dataSource._updateChangeSubscription();
       this.toastr.info('ลบรายการสำเร็จ');
     
      
