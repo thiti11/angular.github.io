@@ -44,7 +44,7 @@ export class UpdateOrderComponent implements OnInit {
         list: ['', Validators.required],
         Quantity: ['', Validators.required],
         Remark: ['', Validators.required],
-        Request_By: ['', Validators.required]
+        Request_By: this.currentUser = this.StorageService.getUser().Firstname, 
     }); }
 
   ngOnInit(): void {
@@ -96,7 +96,7 @@ export class UpdateOrderComponent implements OnInit {
       list: this.formoorderequ.value.list,
       Quantity: this.formoorderequ.value.Quantity,
       Remark: this.formoorderequ.value.Remark,
-      Request_By: this.formoorderequ.value.Request_By,
+      Request_By: this.currentUser = this.StorageService.getUser().Firstname, 
     };
    if(this.formoorderequ.valid){
     this.ApiService.read(data).subscribe(data =>{

@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   formRegister: any = {
     Username:null,
     Password:null,
+    ConfirmPassword:null,
     Firstname:null,
     Lastname:null,
     EmpNo:null,
@@ -48,6 +49,7 @@ export class RegisterComponent implements OnInit {
     ) {  this.formRegister = this.formBuilder.group({
       Username:['', Validators.required],
       Password:['', Validators.required] ,
+      ConfirmPassword:['', Validators.required] ,
       Firstname:['', Validators.required],
       Lastname:['', Validators.required] ,
       EmpNo:['', Validators.required] ,
@@ -77,6 +79,7 @@ export class RegisterComponent implements OnInit {
     mod: 'Get_Register', 
     Username: this.formRegister.value.Username,
     Password: this.formRegister.value.Password,
+    ConfirmPassword: this.formRegister.value.Password,
     Firstname: this.formRegister.value.Firstname,
     Lastname: this.formRegister.value.Lastname,
     EmpNo: this.formRegister.value. EmpNo,
@@ -103,10 +106,6 @@ export class RegisterComponent implements OnInit {
 
     }
   }
-  
-  
- 
-  
-  
+
 
 }

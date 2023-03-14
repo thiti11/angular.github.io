@@ -26,6 +26,8 @@ import { ApprovalComponent } from './approval/approval.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { IssuedComponent } from './issued/issued.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CancelComponent } from './cancel/cancel.component';
 
 
 
@@ -44,6 +46,7 @@ import { IssuedComponent } from './issued/issued.component';
     AdminComponent,
     ApprovalComponent,
     IssuedComponent,
+    CancelComponent,
 
  
   
@@ -71,6 +74,7 @@ import { IssuedComponent } from './issued/issued.component';
     ToastrModule.forRoot(),
     MatCardModule,
     MatIconModule,
+    ModalModule.forRoot(),
     
     
    

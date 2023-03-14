@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <mat-toolbar >
+      <span>Obtain Employee Uniforms</span>
+      <span class="example-spacer"></span>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
+      <strong>User :</strong>
+          <strong>{{ currentUser.Firstname }}</strong>
+          
+        
+      <a mat-button  (click)="logout()"> ออกจากระบบ(Logout)</a>
+    </mat-toolbar>
+    <form    [formGroup]="formcancel"  (ngSubmit)="cancell()"  >
+      <div class="mat-elevation-z8">
+        <h1>
+          แจ้งยกเลิกการขอรับอุปกรณ์(Cancel Equipment Request List)
+         </h1>
+        <table  class="mp-table" mat-table [dataSource]="dataSource">
+      
+             <!-- Name Column -->
+             <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef> ชื่อ(Name) </th>
+                <td mat-cell *matCellDef="let element"> {{element.Firstname}} </td>
+              </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="List">
+            <th mat-header-cell *matHeaderCellDef> รายการ(List) </th>
+            <td mat-cell *matCellDef="let element"> {{element.List}} </td>
+          </ng-container>
+      
+        
+      
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> สถานะการขอรับ(status) </th>
+            <td mat-cell *matCellDef="let element"> {{element.Status }} </td>
+          </ng-container>
+        
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      
+        </table>
+
+      </div>
+      <div class="mb-2">
+        <mat-form-field class="example-full-width">
+        <mat-label>สาเหตุการขอยกเลิกรับอุปกรณ์</mat-label>
+        <textarea matInput formControlName="Cancel"></textarea>
+      </mat-form-field></div>
+      <div class="button1">
+        <button  type="submit" mat-raised-button >ยืนยัน (Confirm)</button>
+        <button [routerLink]="['/order']" type="submit" mat-raised-button >ยกเลิก (Cancel)</button>
+        
+      </div>
+        </form>
+</body>
+</html>

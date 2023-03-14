@@ -14,12 +14,14 @@ export class OrderEquComponent implements OnInit {
   currentUser: any;
   currentUser1: any;
   item: any
+ // Status_ID:any;
   
   formoorderequ: any ={
     list:null,
     Quantity:null,
     Remark:null,
     Request_By:null,
+    Status:null,
   }
 
   
@@ -33,7 +35,10 @@ export class OrderEquComponent implements OnInit {
         list: ['', Validators.required],
         Quantity: ['', Validators.required],
         Remark: ['', Validators.required],
-        Request_By: ['', Validators.required],
+        Request_By: this.currentUser = this.StorageService.getUser().Firstname, 
+        Status: ['รอการอนุมัติ', Validators.required],
+    
+       
         
         
     });
@@ -43,7 +48,8 @@ export class OrderEquComponent implements OnInit {
     this.currentUser = this.StorageService.getUser();
     this.currentUser1 = this.StorageService.getUser();
     this.Get_itemm() ;
-   
+    // this. Get_status();
+    //console.log(this.status);
   }
 
   logout(): void {
@@ -60,9 +66,13 @@ export class OrderEquComponent implements OnInit {
         list: this.formoorderequ.value.list,
         Quantity: this.formoorderequ.value.Quantity,
         Remark: this.formoorderequ.value.Remark,
-        Request_By: this.formoorderequ.value.Request_By,
+        Request_By: this.currentUser = this.StorageService.getUser().Firstname, 
+        Status: this.formoorderequ.value.Status,
         Employee_ID: this.currentUser = this.StorageService.getUser().Employee_ID, 
         Firstname: this.currentUser = this.StorageService.getUser().Firstname, 
+    
+       
+        
 
       };
       if(this.formoorderequ.valid){
@@ -93,6 +103,21 @@ export class OrderEquComponent implements OnInit {
         console.log(resposne);
        this.item = resposne
      //  this.List = resposne[this.List]['List'];
+      
+         
+          
+      });
+    }
+    Get_status(){
+ 
+      let data = {
+        mod: 'Get_status',  
+      };
+      this.ApiService.read(data).subscribe((resposne1: any) => {
+        console.log(resposne1);
+ //    this.status = resposne1[0]['Status']
+     //  this.List = resposne[this.List]['List'];
+   //  console.log(this.status);
       
          
           

@@ -26,7 +26,7 @@ export class AdminComponent implements OnInit {
 
  
 
-  displayedColumns: string[] = ['no','Name','List',  'Quantity', 'Remark','approval','Issued',];
+  displayedColumns: string[] = ['no','Name','List',  'Quantity', 'Remark','Cancel','status','approval','Issued',];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
@@ -64,7 +64,7 @@ Get_orderadmin(){
       console.log(No_ID,Approved_By);
       if(Approved_By !=''){
       
-        this.toastr.info('ลงชื่อส่งมอบ เรียบร้อย');
+        this.toastr.info('ลงชื่ออนุมัติ เรียบร้อย');
       }
       else{
         this.Router.navigate(['/approval',No_ID]);
@@ -77,7 +77,7 @@ Get_orderadmin(){
       console.log(No_ID,Issued_By);
     if(Issued_By !=''){
       
-        this.toastr.info('ลงชื่ออนุมัติ เรียบร้อย');
+        this.toastr.info('ลงชื่อส่งมอบ เรียบร้อย');
      // this.Router.navigate(['/approval',No_ID]);
      }else{
       this.Router.navigate(['/Issued',No_ID]);

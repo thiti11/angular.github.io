@@ -60,25 +60,33 @@
           <td mat-cell *matCellDef="let element"> {{element.Remark}} </td>
         </ng-container>
         <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef> สถานะการสั่งซื้อ(status) </th>
-          <td mat-cell *matCellDef="let element"> {{element.Approved_By }} </td>
+          <th mat-header-cell *matHeaderCellDef> สถานะการขอรับ(status) </th>
+          <td mat-cell *matCellDef="let element"> {{element.Status }} </td>
         </ng-container>
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef> แก้ไขรายการสินค้า(Edit) </th>
+          <th mat-header-cell *matHeaderCellDef> แก้ไขการขอรับสินค้า(Edit) </th>
           <td mat-cell *matCellDef="let element"> 
-            <mat-icon (click)="Updateorder(element.No_ID,element.Approved_By)"  mat-raised-button class="example-icon"  color="primary" 
+            <mat-icon (click)="Updateorder(element.No_ID,element.Status)"  mat-raised-button class="example-icon"  color="primary" 
             aria-hidden="false" aria-label="Example user verified icon">edit_square</mat-icon>
           
         </ng-container>
         <ng-container matColumnDef="action1">
-          <th mat-header-cell *matHeaderCellDef> ลบรายการสินค้า(Delete) </th>
+          <th mat-header-cell *matHeaderCellDef> ลบการขอรับ(Delete) </th>
           <td mat-cell *matCellDef="let element"> 
-            <mat-icon (click)="Deleteorder(element.No_ID)" mat-raised-button class="example-icon"  color="warn" 
+            <mat-icon (click)="Deleteorder(element.No_ID,element.Status)" mat-raised-button class="example-icon"  color="warn" 
             aria-hidden="false" aria-label="Example user verified icon">delete_forever</mat-icon>
-         
            </td>
         </ng-container>
-      
+
+        <ng-container matColumnDef="action2">
+          <th mat-header-cell *matHeaderCellDef> ยกเลิกการขอรับ </th>
+          <td mat-cell *matCellDef="let element"> 
+        
+            <mat-icon (click)="Cancelorder(element.No_ID)" mat-raised-button class="example-icon"  color="warn" 
+            aria-hidden="false" aria-label="Example user verified icon">cancel</mat-icon>
+           </td>
+        </ng-container>
+    
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
@@ -93,3 +101,4 @@
       </form>
 </body>
 </html>
+

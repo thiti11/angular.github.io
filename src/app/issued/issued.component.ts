@@ -20,6 +20,7 @@ export class IssuedComponent implements OnInit {
   formapproval: any ={
 
     Issued_By:null,
+    Status:null,
   
   }
 
@@ -31,6 +32,7 @@ export class IssuedComponent implements OnInit {
       private router:ActivatedRoute) { 
        this.formapproval = this.formBuilder.group({
         Issued_By: ['', Validators.required],
+        Status: ['อนุมัติการส่งมอบ', Validators.required],
      
        
         
@@ -64,7 +66,7 @@ export class IssuedComponent implements OnInit {
         data:this.router.snapshot.params['No_ID'],
         
         Issued_By: this.formapproval.value.Issued_By,
-       
+        Status: this.formapproval.value.Status,
 
       };
     
