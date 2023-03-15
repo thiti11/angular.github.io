@@ -21,6 +21,7 @@ export class IssuedComponent implements OnInit {
 
     Issued_By:null,
     Status:null,
+    Status2:null,
   
   }
 
@@ -33,6 +34,7 @@ export class IssuedComponent implements OnInit {
        this.formapproval = this.formBuilder.group({
         Issued_By: ['', Validators.required],
         Status: ['อนุมัติการส่งมอบ', Validators.required],
+        Status2: ['อนุมัติการขอยกเลิก', Validators.required],
      
        
         

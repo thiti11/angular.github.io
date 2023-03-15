@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { StorageService } from '../_services/storage.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.sercice';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { elementAt } from 'rxjs';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 
 
 
@@ -21,7 +22,7 @@ export class UpdateOrderComponent implements OnInit {
   itemmm:any;
   itemmm1:any;
   itemmm2:any;
-  
+  modalRef?: BsModalRef;
  
    
   formoorderequ: any ={
@@ -39,7 +40,8 @@ export class UpdateOrderComponent implements OnInit {
     private ApiService:ApiService,
     private Route:Router,
     private toastr:ToastrService,
-    private router:ActivatedRoute) { 
+    private router:ActivatedRoute,
+    private modalService: BsModalService) { 
       this.formoorderequ = this.formBuilder.group({
         list: ['', Validators.required],
         Quantity: ['', Validators.required],
@@ -63,6 +65,10 @@ export class UpdateOrderComponent implements OnInit {
   logout(): void {
     this.StorageService.signOut();
     this.Route.navigate(['/login']);
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
   
   Get_Orderid(){

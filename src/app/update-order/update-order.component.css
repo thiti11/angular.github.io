@@ -13,8 +13,9 @@
   
   .mp-table{
     position: absolute;
-    top: 10%;
-    left: 30%;
+    left: 400px;
+    top: 150px;
+    
     
 }
 table, td, th {    
@@ -24,10 +25,7 @@ table, td, th {
 
 }
 
-table {
-    
-    width: 100%;
-}
+
 
 th, td {
     padding: 15px;
@@ -38,7 +36,16 @@ transform: translate(-5%,-20%);
 }
 
   
-  
+.mb-2 {
+  position: absolute;
+  left: 550px;
+  top: 450px;
+}
+.button1{
+  position: absolute;
+  left: 700px;
+  top: 550px;
+}
   
   
   

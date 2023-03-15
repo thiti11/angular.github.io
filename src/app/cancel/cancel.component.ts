@@ -25,7 +25,7 @@ export class CancelComponent implements OnInit {
 
   
   }
-  Router: any;
+
 
   constructor( private formBuilder:FormBuilder,
     private StorageService: StorageService,
@@ -36,7 +36,7 @@ export class CancelComponent implements OnInit {
       this.formcancel = this.formBuilder.group({
  
         Cancel: ['', Validators.required],
-        Status: ['ตรวจสอบการขอยกเลิก', Validators.required],
+        Status: ['แจ้งยกเลิกรายการ', Validators.required],
   
         
     });
@@ -95,7 +95,7 @@ export class CancelComponent implements OnInit {
       console.log(data);
     
       this.toastr.info('ยืนยันรายการสำเร็จ');
-     // this.Router.navigate(['/order']);
+      this.Route.navigate(['/order']);
     
    
         

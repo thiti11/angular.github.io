@@ -35,6 +35,9 @@ import { CancelComponent } from './cancel/cancel.component';
 
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +50,7 @@ import { CancelComponent } from './cancel/cancel.component';
     ApprovalComponent,
     IssuedComponent,
     CancelComponent,
+
 
  
   

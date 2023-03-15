@@ -20,10 +20,10 @@ export class OrderComponent implements OnInit {
   List: any;
   dataSource:any;
   no=0;
-  
+  modalRef?: BsModalRef;
 
 
-  displayedColumns: string[] = ['no','List',  'Quantity', 'Remark','status','action','action1','action2'];
+  displayedColumns: string[] = ['no','List',  'Quantity', 'Remark','Date','status','action','action1','action2'];
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -52,6 +52,10 @@ ngOnInit(): void{
   this.Router.navigate(['/login']);
 }
 
+openModal(template: TemplateRef<any>) {
+  this.modalRef = this.modalService.show(template);
+}
+
  
 Get_itemorder(){
   let data = {
@@ -77,19 +81,25 @@ Get_itemorder(){
      
       this.toastr.error('อนุมัติแล้ว ไม่สามารถแก้ไขได้');
     }
-    else if (Status =='รอยกเลิกการขอรับ') {
+    else if (Status =='แจ้งยกเลิกรายการ') {
       this.toastr.error('แจ้งยกเลิก ไม่สามารถแก้ไขได้');
-    } else if (Status =='อนุมัติส่งมอบ'){
+    } else if (Status =='อนุมัติการส่งมอบ'){
       this.toastr.error('อนุมัติส่งมอบแล้ว ไม่สามารถแก้ไขได้');
+    } else if(Status =='ยกเลิกการขอ'){
+      this.toastr.error('รายการนี้ถูกยกเลิกแล้ว');
     } else {
       this.Router.navigate(['/updateorder',No_ID]); 
     }
   }
 
-  Cancelorder(No_ID:number){
+  Cancelorder(No_ID:number,Status:string){
     console.log(No_ID);
-  
+    if(Status =='ยกเลิกการขอ'){
+      this.toastr.error('รายการนี้ถูกยกเลิกแล้ว');
+    } else {
       this.Router.navigate(['/Cancel',No_ID]);
+    }
+    //  this.Router.navigate(['/Cancel',No_ID]);
     
       
   }
@@ -97,24 +107,25 @@ Get_itemorder(){
   Deleteorder(No_ID:number,Status:string){
   console.log(No_ID,Status);
 
-
-  
    let data =  {
       mod: 'Get_Deleteorder',
       data: No_ID
       
     }; 
-    this.ApiService.delete(data).subscribe(data =>{
-      console.log(data);
+
       if(Status =='อนุมัติการขอ'){
       
-        this.toastr.info('ผ่านการอนุมัติแล้ว ไม่สามารถทำการลบได้');
+        this.toastr.error('ผ่านการอนุมัติแล้ว ไม่สามารถทำการลบได้');
+      }else if(Status =='อนุมัติการส่งมอบ'){
+        this.toastr.error('ผ่านการอนุมัติแล้ว ไม่สามารถทำการลบได้');
       }
-      else{
+      else{    
+        this.ApiService.delete(data).subscribe(data =>{
+        console.log(data);
         this.dataSource.data.splice(data,1);
         this.dataSource._updateChangeSubscription();
         this.toastr.info('ลบรายการสำเร็จ');
-      }
+      
         
      
     //  this.dataSource.data.splice(data,1);
@@ -123,6 +134,7 @@ Get_itemorder(){
     
      
     });
+  }
 
 
   }

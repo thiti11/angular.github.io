@@ -17,52 +17,17 @@
     <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
     <strong>User :</strong>
         <strong>{{ currentUser.Firstname }}</strong>
-    
+    <a mat-button  (click)="openModal(template)">ประวัติ(Profile)</a>
     <a mat-button  (click)="logout()"> ออกจากระบบ(Logout)</a>
   </mat-toolbar>
 
     
-      <div class="mp-table" >
+    
         <form [formGroup]="formoorderequ"   (ngSubmit)="Get_Orderequ()">
+          <div class="mp-table">
        <h1>
         ขอรับอุปกรณ์(Request  Equipment)
        </h1>
-       <p>
-        <strong>ชื่อ(FirstName):</strong>
-        {{currentUser1.Firstname  }}
-    </p>
-    <p>
-        <strong>นามสกุล(Lastname):</strong>
-        {{ currentUser1.Lastname }}
-    </p>
-    <p>
-        <strong>รหัสพนักงาน(EmpNo) :</strong>
-        {{currentUser1.EmpNo  }}
-    </p>
-    <p>
-        <strong>ตำแหน่งพนักงาน(Position):</strong>
-        {{ currentUser1.Position }}
-    </p>
-    <p>
-        <strong>ฝ่ายพนักงาน(Department):</strong>
-        {{ currentUser1.Department }}
-    </p>
-    <p>
-        <strong>แผนกพนักงาน(Section) :</strong>
-        {{ currentUser1.Section }}
-      </p>
-      <p>
-        <strong>ประเภทพนักงาน(Type_of_Employee):</strong>
-        {{ currentUser1.Type_of_Employee }}
-    </p>
-    <p>
-        <strong>รายละเอียดพนักงาน(Employee_Detail):</strong>
-        {{currentUser1.Employee_Detail }}
-    </p>
-    <p>
-        <strong>วันที่พนักงานเริ่มงาน(Joined_date) :</strong>
-        {{ currentUser1.Joined_date }}
-      </p>
   
     
         <table>
@@ -71,7 +36,7 @@
               <th>เลือกสินค้า(Select Products)</th>
               <th>จำนวน/ชิ้น (Quantity)</th>
               <th>หมายเหตุ(Remark)</th>
-              
+              <th>วันที่(Date)</th>
 
             </tr>
             <tr >
@@ -82,12 +47,14 @@
                   <option *ngFor="let post of item" [value]="post.List">
               </datalist> </td>
               <td><input type="Value" class="form-control"  formControlName="Quantity"></td>
-              <td><input type="text" class="form-control" formControlName="Remark"></td>                         
-            
+              <td><input type="text" class="form-control" formControlName="Remark"></td>   
+              <td><input type="date" class="form-control" formControlName="Date"></td>                          
+
             </tr>
         
             </table>
-            <p>
+          </div>
+            <div class="mb-2">
               <mat-form-field appearance="outline" >
                 <mat-label>ผู้สั่งซื้อ(Request By)</mat-label>
                 <input matInput   formControlName="Request_By">
@@ -100,12 +67,34 @@
                 <mat-label>ผู้ส่งมอบ(Issued By)</mat-label>
                 <input matInput [disabled]="true" >
               </mat-form-field>
-            </p>
+            </div>
           <div class="button1">
             <button  type="submit" mat-raised-button >ยืนยัน (Confirm)</button>
             <button [routerLink]="['/order']" type="submit" mat-raised-button>ยกเลิก (Cancel)</button>
           </div>
         </form>
-        </div>
+       
 </body>
 </html>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">ประวัติ(Profile)</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <h4>ชื่อ(FirstName): {{currentUser1.Firstname}}</h4>
+      <h4>นามสกุล(Lastname): {{currentUser1.Lastname}}</h4>
+      <h4>รหัสพนักงาน(EmpNo): {{currentUser1.EmpNo}}</h4>
+      <h4>ตำแหน่งพนักงาน(Position): {{currentUser1.Position}}</h4>
+      <h4>ฝ่ายพนักงาน(Department): {{currentUser1.Department}}</h4>
+      <h4>แผนกพนักงาน(Section): {{currentUser1.Section}}</h4>
+      <h4>ประเภทพนักงาน(Type_of_Employee): {{currentUser1.Type_of_Employee}}</h4>
+      <h4>รายละเอียดพนักงาน(Employee_Detail): {{currentUser1.Employee_Detail }}</h4>
+      <h4>วันที่พนักงานเริ่มงาน(Joined_date): {{currentUser1.Joined_date}}</h4>
+  </div>
+  </div>
+</ng-template>

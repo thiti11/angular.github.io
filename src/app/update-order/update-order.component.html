@@ -17,54 +17,20 @@
     <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">account_circle</mat-icon>
     <strong>User :</strong>
         <strong>{{ currentUser.Firstname }}</strong>
-
+    <a mat-button  (click)="openModal(template)">ประวัติ(Profile)</a>
     <a mat-button (click)="logout()">ออกจากระบบ(Logout)</a>
   </mat-toolbar>
 
 
     
-      <div class="mp-table" >
+    
         <form [formGroup]="formoorderequ"   (ngSubmit)="Get_Updateorder()">
-       <h1>
-        แก้ไขการสั่งซื้ออุปกรณ์(Edit Order Equpment)
-       </h1>
-       <p>
-        <strong>FirstName(ชื่อ):</strong>
-        {{currentUser.Firstname  }}
-    </p>
-    <p>
-        <strong>Lastname(นามสกุล):</strong>
-        {{ currentUser.Lastname }}
-    </p>
-    <p>
-        <strong>EmpNo(รหัสพนักงาน) :</strong>
-        {{currentUser.EmpNo  }}
-    </p>
-    <p>
-        <strong>Position(ตำแหน่งพนักงาน):</strong>
-        {{ currentUser.Position }}
-    </p>
-    <p>
-        <strong>Department(ฝ่ายพนักงาน):</strong>
-        {{ currentUser.Department }}
-    </p>
-    <p>
-        <strong>Section(แผนกพนักงาน) :</strong>
-        {{ currentUser.Section }}
-      </p>
-      <p>
-        <strong>Type_of_Employee(ประเภทพนักงาน):</strong>
-        {{ currentUser.Type_of_Employee }}
-    </p>
-    <p>
-        <strong>Employee_Detail(รายละเอียดพนักงาน):</strong>
-        {{currentUser.Employee_Detail }}
-    </p>
-    <p>
-        <strong>Joined_date(วันที่พนักงานเริ่มงาน) :</strong>
-        {{ currentUser.Joined_date }}
-      </p>
-  
+     
+    
+       <div class="mp-table">
+        <h1>
+          แก้ไขการสั่งซื้ออุปกรณ์(Edit Order Equpment)
+         </h1>
        
         <table>
             <tr>
@@ -110,6 +76,8 @@
             
             </tr>
             </table>
+       </div>
+            <div class="mb-2">
             <p>
               <mat-form-field appearance="outline">
                 <mat-label>ผู้สั่งซื้อ(Request By)</mat-label>
@@ -124,11 +92,34 @@
                 <input matInput  [disabled]="true">
               </mat-form-field>
             </p>
-          <div class="button">
+          </div>
+          <div class="button1">
             <button  type="submit" mat-raised-button >ยืนยัน (Confirm)</button>
             <button [routerLink]="['/order']" type="submit" mat-raised-button>ยกเลิก (Cancel)</button>
           </div>
         </form>
-        </div>
+     
 </body>
 </html>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">ประวัติ(Profile)</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <h4>ชื่อ(FirstName): {{currentUser.Firstname}}</h4>
+      <h4>นามสกุล(Lastname): {{currentUser.Lastname}}</h4>
+      <h4>รหัสพนักงาน(EmpNo): {{currentUser.EmpNo}}</h4>
+      <h4>ตำแหน่งพนักงาน(Position): {{currentUser.Position}}</h4>
+      <h4>ฝ่ายพนักงาน(Department): {{currentUser.Department}}</h4>
+      <h4>แผนกพนักงาน(Section): {{currentUser.Section}}</h4>
+      <h4>ประเภทพนักงาน(Type_of_Employee): {{currentUser.Type_of_Employee}}</h4>
+      <h4>รายละเอียดพนักงาน(Employee_Detail): {{currentUser.Employee_Detail }}</h4>
+      <h4>วันที่พนักงานเริ่มงาน(Joined_date): {{currentUser.Joined_date}}</h4>
+  </div>
+  </div>
+</ng-template>

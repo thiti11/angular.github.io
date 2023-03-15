@@ -15,11 +15,16 @@
           <h1>
             รายการขอรับอุปกรณ์(Equipment Request List)
            </h1>
-            <table mat-table [dataSource]="dataSource">
+           <mat-form-field appearance="outline">
+            <mat-label>ค้นหารายการ</mat-label>
+            <input matInput placeholder="ระบุวันที่" (keyup)="Filterchange($event)">
+          </mat-form-field>
+
+            <table mat-table   [dataSource]="dataSource" >
           
               <!-- Position Column -->
               <ng-container matColumnDef="no">
-                <th mat-header-cell *matHeaderCellDef> ลำดับ(No) </th>
+                <th mat-header-cell  *matHeaderCellDef> ลำดับ(No) </th>
                 <td mat-cell *matCellDef="let element; let i = index"> {{no+(i)}}</td>
               </ng-container>
 
@@ -41,6 +46,12 @@
                 <td mat-cell *matCellDef="let element"> {{element.Quantity}} </td>
               </ng-container>
           
+              <!-- Weight Column -->
+              <ng-container matColumnDef="Date">
+                  <th mat-header-cell *matHeaderCellDef> วันที่(Date) </th>
+                  <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+              </ng-container>
+
               <!-- Symbol Column -->
               <ng-container matColumnDef="Remark">
                 <th mat-header-cell *matHeaderCellDef> หมายเหตุ(Remark) </th>
@@ -60,13 +71,22 @@
               <ng-container matColumnDef="approval">
                 <th mat-header-cell *matHeaderCellDef> Approved_By </th>
                 <td mat-cell *matCellDef="let element"> 
-                <a (click)="sign_approval(element.No_ID,element.Approved_By)" mat-raised-button  color="warn" >ลงชื่อ</a>
+                <a (click)="sign_approval(element.No_ID,element.Status)" mat-raised-button  color="warn" >ลงชื่อ</a>
               </ng-container>
 
               <ng-container matColumnDef="Issued">
                 <th mat-header-cell *matHeaderCellDef> Issued_By </th>
                 <td mat-cell *matCellDef="let element"> 
-                <a (click)=" sign_Issued(element.No_ID,element.Issued_By,element.Approved_By)" mat-raised-button  color="primary" >ลงชื่อ</a>
+                <a (click)=" sign_Issued(element.No_ID,element.Status)" mat-raised-button  color="primary" >ลงชื่อ</a>
+              </ng-container>
+
+
+              <ng-container matColumnDef="Cancel2">
+                <th mat-header-cell *matHeaderCellDef> ยกเลิก(Cancel)</th>
+                <td mat-cell *matCellDef="let element"> 
+                  <a (click)=" Cancel(element.No_ID,element.Status)" mat-raised-button  color="primary" >ยกเลิก</a>
+         
+                 </td>
               </ng-container>
 
        

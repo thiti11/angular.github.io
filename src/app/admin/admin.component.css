@@ -17,8 +17,8 @@ table,  mat-paginator {
 }
 .mp-table{
   position: absolute;
-  top: 20%; left: 15%;
-  width:70%;
+  top: 20%; left: 5%;
+  width:90%;
 
   
 }
@@ -27,4 +27,8 @@ h1 {
   transform: translate(0%,40%);
   }
     
-    
+  .example-full-width {
+    width: 100%;
+    min-width: 150px;
+    max-width: 500px;
+  }  

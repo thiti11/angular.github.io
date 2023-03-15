@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { StorageService } from '../_services/storage.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../api.sercice';
 import {  Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-order-equ',
@@ -15,6 +16,7 @@ export class OrderEquComponent implements OnInit {
   currentUser1: any;
   item: any
  // Status_ID:any;
+ modalRef?: BsModalRef;
   
   formoorderequ: any ={
     list:null,
@@ -30,13 +32,16 @@ export class OrderEquComponent implements OnInit {
     private  StorageService: StorageService,
     private Router:Router,
     private toastr:ToastrService,
-    private ApiService:ApiService) { 
+    private ApiService:ApiService,
+    private modalService: BsModalService) { 
       this.formoorderequ = this.formBuilder.group({
         list: ['', Validators.required],
         Quantity: ['', Validators.required],
         Remark: ['', Validators.required],
+        Date: ['', Validators.required],
         Request_By: this.currentUser = this.StorageService.getUser().Firstname, 
         Status: ['รอการอนุมัติ', Validators.required],
+
     
        
         
@@ -57,6 +62,9 @@ export class OrderEquComponent implements OnInit {
     this.Router.navigate(['/login']);
   }
 
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 
   Get_Orderequ(){
     console.log(this.formoorderequ.value)
@@ -66,6 +74,7 @@ export class OrderEquComponent implements OnInit {
         list: this.formoorderequ.value.list,
         Quantity: this.formoorderequ.value.Quantity,
         Remark: this.formoorderequ.value.Remark,
+        Date: this.formoorderequ.value.Date,
         Request_By: this.currentUser = this.StorageService.getUser().Firstname, 
         Status: this.formoorderequ.value.Status,
         Employee_ID: this.currentUser = this.StorageService.getUser().Employee_ID, 
